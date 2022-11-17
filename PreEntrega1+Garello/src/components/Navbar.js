@@ -1,7 +1,9 @@
+import CartWidget from './CartWidget';
+
 const logo = require('./kwik-logo.png');
 const homer = require('./02.png');
 const abraham = require('./01.png');
-const carrito = require('./03.png');
+
 
 const Navbar = () => {
     return (
@@ -27,13 +29,13 @@ const Navbar = () => {
 
               <div className="items-center hidden space-x-8 lg:flex">
                 <a
-                  className="flex text-gray-600 hover:text-green-700
+                  className="flex text-xl text-gray-600 hover:text-green-700
                             cursor-pointer transition-colors duration-300">
                   Inicio
                 </a>
 
                 <a
-                  className="flex text-gray-600 hover:text-green-700
+                  className="flex text-xl text-gray-600 hover:text-green-700
                   cursor-pointer transition-colors duration-300">
                   Categorías
                 </a>
@@ -41,31 +43,24 @@ const Navbar = () => {
 
               <div className="flex items-center space-x-5">
                 <a
-                  className="flex text-gray-600 hover:text-green-700
+                  className="flex text-xl text-gray-600 hover:text-green-700
                             cursor-pointer transition-colors duration-300">
                   <img 
-                  className="fill-current h-6 w-6 mr-2 mt-0.5"
+                  className="fill-current h-7 w-7 mr-2 mt-0.5"
                   src={homer}/>
                   Registrarse
                 </a>
 
                 <a
-                  className="flex text-gray-600 hover:text-green-700
+                  className="flex text-xl text-gray-600 hover:text-green-700
                   cursor-pointer transition-colors duration-300">
                   <img 
-                  className="fill-current h-6 w-6 mr-2 mt-0.5"
+                  className="fill-current h-7 w-7 mr-2 mt-0.5"
                   src={abraham}/>
                   Login
                 </a>
 
-                <a
-                  className="flex font-bold text-black
-                   cursor-pointer transition-colors duration-300">
-                  <img 
-                  className="fill-current h-6 w-6 mr-2"
-                  src={carrito}/>
-                  1
-                </a>
+                <CartWidget />
 
               </div>
             </nav>
