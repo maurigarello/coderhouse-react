@@ -21,8 +21,9 @@ const Navbar = () => {
                   <h3 className="text-2xl font-medium text-blue-500">
                     <img
                       className="h-10 object-cover"
-                      src={logo}
-                      alt="LOGO"/>
+                      href=""
+                      alt="LOGO"
+                      src={logo}/>
                   </h3>
                 </a>
               </div>
@@ -47,6 +48,8 @@ const Navbar = () => {
                             cursor-pointer transition-colors duration-300">
                   <img 
                   className="fill-current h-7 w-7 mr-2 mt-0.5"
+                  href=""
+                  alt="homero"
                   src={homer}/>
                   Registrarse
                 </a>
@@ -56,6 +59,8 @@ const Navbar = () => {
                   cursor-pointer transition-colors duration-300">
                   <img 
                   className="fill-current h-7 w-7 mr-2 mt-0.5"
+                  href=""
+                  alt="abraham"
                   src={abraham}/>
                   Login
                 </a>
