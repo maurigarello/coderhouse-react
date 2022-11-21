@@ -3,7 +3,7 @@ import CartWidget from './CartWidget';
 const logo = require('./kwik-logo.png');
 const homer = require('./02.png');
 const abraham = require('./01.png');
-
+const logo_mobile = require('./kwik-logomobile.png');
 
 const Navbar = () => {
     return (
@@ -20,10 +20,22 @@ const Navbar = () => {
                 <a className="cursor-pointer">
                   <h3 className="text-2xl font-medium text-blue-500">
                     <img
-                      className="h-10 object-cover"
+                      className="hidden h-6 md:flex lg:flex md:h-8 lg:h-10 object-cover"
                       href=""
                       alt="LOGO"
                       src={logo}/>
+                  </h3>
+                </a>
+              </div>
+
+              <div className="flex items-center">
+                <a className="cursor-pointer">
+                  <h3 className="text-2xl font-medium text-blue-500">
+                    <img
+                      className="h-8 md:hidden lg:hidden object-cover"
+                      href=""
+                      alt="LOGO"
+                      src={logo_mobile}/>
                   </h3>
                 </a>
               </div>
