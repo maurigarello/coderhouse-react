@@ -1,9 +1,8 @@
 import CartWidget from './CartWidget';
-
-const logo = require('./kwik-logo.png');
-const homer = require('./02.png');
-const abraham = require('./01.png');
-const logo_mobile = require('./kwik-logomobile.png');
+import logo from '../assets/kwik-logo.png';
+import homer from '../assets/02.png';
+import abraham from '../assets/01.png';
+import logo_mobile from '../assets/kwik-logomobile.png';
 
 const Navbar = () => {
     return (
@@ -74,7 +73,7 @@ const Navbar = () => {
                   href=""
                   alt="abraham"
                   src={abraham}/>
-                  Login
+                  Ingresar
                 </a>
 
                 <CartWidget />

@@ -1,4 +1,4 @@
-const carrito = require('./03.png');
+import carrito from '../assets/03.png';
 
 const CartWidget = () => {
   return (
@@ -12,4 +12,5 @@ const CartWidget = () => {
     </div>
   );
 };
+
 export default CartWidget;

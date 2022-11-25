@@ -1,16 +1,22 @@
 import './App.css';
 import ItemListContainer from './components/ItemListContainer';
 import Navbar from "./components/NavBar";
-import Clicker from './components/Clicker';
-
+import ItemCount from './components/ItemCount';
 
 function App() {
   return (
+    <>
+
     <div className="App">
+      
       <Navbar />
       <ItemListContainer greeting="Bienvenido" />
-      <Clicker />
+      
     </div>
+
+    <ItemCount />
+   
+    </>
   );
 }
 
