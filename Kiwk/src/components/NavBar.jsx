@@ -1,8 +1,7 @@
 import CartWidget from './CartWidget';
-import logo from '../assets/kwik-logo.png';
-import homer from '../assets/02.png';
-import abraham from '../assets/01.png';
-import logo_mobile from '../assets/kwik-logomobile.png';
+import login from "../assets/login.png";
+import register from "../assets/register.png";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
     return (
@@ -34,20 +33,20 @@ const Navbar = () => {
                       className="h-8 md:hidden lg:hidden object-cover"
                       href=""
                       alt="LOGO"
-                      src={logo_mobile}/>
+                      src=""/>
                   </h3>
                 </a>
               </div>
 
               <div className="items-center hidden space-x-8 lg:flex">
                 <a
-                  className="flex text-xl text-gray-600 hover:text-green-700
+                  className="flex text-xl text-gray-600 hover:text-blue-500
                             cursor-pointer transition-colors duration-300">
                   Inicio
                 </a>
 
                 <a
-                  className="flex text-xl text-gray-600 hover:text-green-700
+                  className="flex text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300">
                   Categorías
                 </a>
@@ -55,24 +54,24 @@ const Navbar = () => {
 
               <div className="flex items-center space-x-5">
                 <a
-                  className="flex text-xl text-gray-600 hover:text-green-700
+                  className="flex text-xl text-gray-600 hover:text-blue-500
                             cursor-pointer transition-colors duration-300">
                   <img 
                   className="fill-current h-7 w-7 mr-2 mt-0.5"
                   href=""
-                  alt="homero"
-                  src={homer}/>
+                  alt=""
+                  src={register}/>
                   Registrarse
                 </a>
 
                 <a
-                  className="flex text-xl text-gray-600 hover:text-green-700
+                  className="flex text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300">
                   <img 
                   className="fill-current h-7 w-7 mr-2 mt-0.5"
                   href=""
-                  alt="abraham"
-                  src={abraham}/>
+                  alt=""
+                  src={login}/>
                   Ingresar
                 </a>
 

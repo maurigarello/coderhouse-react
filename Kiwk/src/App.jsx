@@ -9,11 +9,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route
-          path="/itemList"
-          element={<ItemListContainer greeting="Bienvenido" />}
-        />
-        <Route path="/" element={<ItemCount />} />
+        <Route path="/" element={<ItemListContainer />} />
       </Routes>
     </BrowserRouter>
   );
