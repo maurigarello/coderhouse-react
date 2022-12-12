@@ -70,7 +70,7 @@ const Navbar = () => {
               <a
                 className="hidden md:block text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
-                  href={() => false}
+                href={() => false}
               >
                 Registrarse
               </a>
@@ -84,7 +84,7 @@ const Navbar = () => {
               <a
                 className="hidden md:block text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
-                  href={() => false}
+                href={() => false}
               >
                 Ingresar
               </a>
