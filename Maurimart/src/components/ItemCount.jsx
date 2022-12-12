@@ -17,7 +17,7 @@ const ItemCount = () => {
       : ((stock = stock - count), alert(`se agregaron ${count} al carrito`));
 
   return (
-    <div className="flex items-center w-28 ml-auto mr-auto pt-8">
+    <div className="flex w-28 mr-auto pt-8">
       <div className="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1">
         <button
           onClick={decrement}
@@ -39,9 +39,9 @@ const ItemCount = () => {
       </div>
       <button
         onClick={Agregar}
-        className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white ml-20 py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        className="bg-gray-700 text-white font-semibold hover:bg-gray-400 ml-20 py-2 px-4 border border-black hover:border-transparent rounded"
       >
-        Agregar al carrito
+        Añadir
       </button>
     </div>
   );

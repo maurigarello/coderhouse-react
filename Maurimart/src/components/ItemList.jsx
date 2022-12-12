@@ -1,26 +1,39 @@
 import { useEffect, useState } from "react";
 import Item from "./Item";
 import { PRODUCTS } from "../db/db.js";
+import { useParams } from "react-router-dom";
 
 const ItemList = () => {
   const [products, setProducts] = useState([]);
 
+  const { categoryId } = useParams();
+  console.log(categoryId, "soy el categoryId");
+
   useEffect(() => {
-    getProducts()
-      .then((response) => {
-        console.log(response);
-        setProducts(response);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+    if (categoryId) {
+      getProducts()
+        .then((response) => {
+          setProducts(response.filter((e) => e.category === categoryId));
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    } else {
+      getProducts()
+        .then((response) => {
+          setProducts(response);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }, [categoryId]);
 
   const getProducts = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(PRODUCTS);
-      }, 1000);
+      }, 2000);
     });
   };
 

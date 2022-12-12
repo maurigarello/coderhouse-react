@@ -1,12 +1,10 @@
-import arrow from "../assets/arrow.png";
+import { Link } from "react-router-dom";
 
-const Item = ({ id, name, stock, img }) => {
+const Item = ({ id, name, category, img }) => {
   return (
     <div className="relative shadow-2xl max-w-lg w-full transform duration-500 hover:-translate-y-2 cursor-pointer rounded-md">
-      <div className="flex absolute right-0 top-0 w-10 h-10 bg-blue-600 text-gray-100">
-       <img
-       src={arrow}
-       />
+      <div className="flex absolute right-0 top-0 w-24 h-10 bg-blue-600 text-gray-100">
+      <Link className="w-full text-center mt-1" to={`/item/${id}`}><button className="p-px">Ver Detalle</button></Link>
       </div>
       <div className="bg-no-repeat bg-center overflow-hidden mt-10 min-h-96">
         <img
