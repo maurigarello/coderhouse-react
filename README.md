@@ -1,2 +1,2 @@
 # Coderhouse-React
-# En este repositorio estaré documentando paso a paso mis estudios en el curso de React JS en la plataforma CODERHOUSE
+# En este repositorio estaré haciendo commit a medida que va evolucionando mi proyecto, una vez finalizado lo desplegaré y realizare la presentación en este mismo readme
