@@ -16,7 +16,7 @@ const Navbar = () => {
                     fixed top-0 left-0 right-0 z-10 "
           >
             <div className="flex items-center">
-              <a className="cursor-pointer">
+              <a className="cursor-pointer" href={() => false}>
                 <Link to="/">
                   <h3 className="text-2xl font-medium text-blue-500">
                     <img
@@ -31,7 +31,7 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center">
-              <a className="cursor-pointer">
+              <a className="cursor-pointer" href={() => false}>
                 <Link to="/">
                   <h3 className="text-2xl font-medium text-blue-500">
                     <img
@@ -50,6 +50,7 @@ const Navbar = () => {
                 <a
                   className="flex text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
+                  href={() => false}
                 >
                   Sillas
                 </a>
@@ -58,6 +59,7 @@ const Navbar = () => {
                 <a
                   className="flex text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
+                  href={() => false}
                 >
                   Utilerias
                 </a>
@@ -68,6 +70,7 @@ const Navbar = () => {
               <a
                 className="hidden md:block text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
+                  href={() => false}
               >
                 Registrarse
               </a>
@@ -81,6 +84,7 @@ const Navbar = () => {
               <a
                 className="hidden md:block text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
+                  href={() => false}
               >
                 Ingresar
               </a>
