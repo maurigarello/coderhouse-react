@@ -9,7 +9,7 @@ const Item = ({ id, name, category, img }) => {
         </Link>
       </div>
       <div className="bg-no-repeat bg-center overflow-hidden mt-10 min-h-96">
-        <img className="mx-auto p-5" src={img} alt="" />
+        <img className="mx-auto p-5" src={img} alt={`esta es una imagen del producto: `} />
       </div>
       <div className="p-8 mb-10 mt-2">
         <p className="text-xl text-gray-500">{id}</p>

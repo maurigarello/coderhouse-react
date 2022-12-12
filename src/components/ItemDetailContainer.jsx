@@ -5,13 +5,14 @@ import { PRODUCTS } from "../db/db";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
-  const [item, setItem] = useState(null);
+  const [item, setItem] = useState({});
 
   useEffect(() => {
     const getProducts = () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve(PRODUCTS.find((e) => e.id === id));
+          // eslint-disable-next-line
+          resolve(PRODUCTS.find((e) => e.id == id));
         }, 2000);
       });
     };

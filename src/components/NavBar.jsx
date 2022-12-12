@@ -16,53 +16,47 @@ const Navbar = () => {
                     fixed top-0 left-0 right-0 z-10 "
           >
             <div className="flex items-center">
-              <a className="cursor-pointer" href="#!">
-                <Link to="/">
-                  <h3 className="text-2xl font-medium text-blue-500">
-                    <img
-                      className="hidden h-6 md:flex lg:flex md:h-8 lg:h-10 object-cover"
-                      href="#!"
-                      alt="LOGO"
-                      src={logo}
-                    />
-                  </h3>
-                </Link>
-              </a>
+              <Link to="/" className="cursor-pointer" href="#!">
+                <h3 className="text-2xl font-medium text-blue-500">
+                  <img
+                    className="hidden h-6 md:flex lg:flex md:h-8 lg:h-10 object-cover"
+                    href="#!"
+                    alt="LOGO"
+                    src={logo}
+                  />
+                </h3>
+              </Link>
             </div>
 
             <div className="flex items-center">
-              <a className="cursor-pointer" href="#!">
-                <Link to="/">
-                  <h3 className="text-2xl font-medium text-blue-500">
-                    <img
-                      className="h-8 md:hidden lg:hidden object-cover"
-                      href="#!"
-                      alt="LOGO"
-                      src={logo_responsive}
-                    />
-                  </h3>
-                </Link>
-              </a>
+              <Link to="/" className="cursor-pointer" href="#!">
+                <h3 className="text-2xl font-medium text-blue-500">
+                  <img
+                    className="h-8 md:hidden lg:hidden object-cover"
+                    href="#!"
+                    alt="LOGO"
+                    src={logo_responsive}
+                  />
+                </h3>
+              </Link>
             </div>
 
             <div className="items-center hidden space-x-8 lg:flex">
-              <Link to="/category/sillas">
-                <a
-                  className="flex text-xl text-gray-600 hover:text-blue-500
+              <Link
+                to="/category/sillas"
+                className="flex text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
-                  href="#!"
-                >
-                  Sillas
-                </a>
+                href="#!"
+              >
+                Sillas
               </Link>
-              <Link to="/category/utilerias">
-                <a
-                  className="flex text-xl text-gray-600 hover:text-blue-500
+              <Link
+                to="/category/utilerias"
+                className="flex text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
-                  href="#!"
-                >
-                  Utilerias
-                </a>
+                href="#!"
+              >
+                Utilerias
               </Link>
             </div>
 
@@ -77,7 +71,7 @@ const Navbar = () => {
               <img
                 className="fill-current h-7 w-7 mr-2 mt-0.5"
                 href="#!"
-                alt=""
+                alt="#!"
                 src={register}
               />
 
@@ -91,7 +85,7 @@ const Navbar = () => {
               <img
                 className="fill-current h-7 w-7 mr-2 mt-0.5"
                 href="#!"
-                alt=""
+                alt="#!"
                 src={login}
               />
 

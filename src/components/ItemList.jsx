@@ -7,7 +7,6 @@ const ItemList = () => {
   const [products, setProducts] = useState([]);
 
   const { categoryId } = useParams();
-  console.log(categoryId, "soy el categoryId");
 
   useEffect(() => {
     if (categoryId) {
