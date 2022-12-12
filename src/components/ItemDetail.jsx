@@ -4,7 +4,7 @@ const ItemDetail = ({ id, name, description, img, category }) => {
   return (
     <div>
       <div className="bg-no-repeat bg-center overflow-hidden min-h-96">
-        <img className="mx-auto p-5" src={img} alt="" />
+        <img className="mx-auto p-5" src={img} alt={() => false} />
       </div>
       <div className="p-8 mb-10 mt-2">
         <p className="text-xl text-gray-500">{id}</p>

@@ -16,12 +16,12 @@ const Navbar = () => {
                     fixed top-0 left-0 right-0 z-10 "
           >
             <div className="flex items-center">
-              <a className="cursor-pointer" href={() => false}>
+              <a className="cursor-pointer" href="#!">
                 <Link to="/">
                   <h3 className="text-2xl font-medium text-blue-500">
                     <img
                       className="hidden h-6 md:flex lg:flex md:h-8 lg:h-10 object-cover"
-                      href={() => false}
+                      href="#!"
                       alt="LOGO"
                       src={logo}
                     />
@@ -31,12 +31,12 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center">
-              <a className="cursor-pointer" href={() => false}>
+              <a className="cursor-pointer" href="#!">
                 <Link to="/">
                   <h3 className="text-2xl font-medium text-blue-500">
                     <img
                       className="h-8 md:hidden lg:hidden object-cover"
-                      href={() => false}
+                      href="#!"
                       alt="LOGO"
                       src={logo_responsive}
                     />
@@ -50,7 +50,7 @@ const Navbar = () => {
                 <a
                   className="flex text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
-                  href={() => false}
+                  href="#!"
                 >
                   Sillas
                 </a>
@@ -59,7 +59,7 @@ const Navbar = () => {
                 <a
                   className="flex text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
-                  href={() => false}
+                  href="#!"
                 >
                   Utilerias
                 </a>
@@ -70,13 +70,13 @@ const Navbar = () => {
               <a
                 className="hidden md:block text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
-                href={() => false}
+                href="#!"
               >
                 Registrarse
               </a>
               <img
                 className="fill-current h-7 w-7 mr-2 mt-0.5"
-                href={() => false}
+                href="#!"
                 alt=""
                 src={register}
               />
@@ -84,13 +84,13 @@ const Navbar = () => {
               <a
                 className="hidden md:block text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
-                href={() => false}
+                href="#!"
               >
                 Ingresar
               </a>
               <img
                 className="fill-current h-7 w-7 mr-2 mt-0.5"
-                href={() => false}
+                href="#!"
                 alt=""
                 src={login}
               />

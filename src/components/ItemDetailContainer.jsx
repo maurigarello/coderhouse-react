@@ -5,11 +5,17 @@ import { PRODUCTS } from "../db/db";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
-  const [item, setItem] = useState([]);
-
-  const { name, stock, img, description, category } = item;
+  const [item, setItem] = useState(null);
 
   useEffect(() => {
+    const getProducts = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(PRODUCTS.find((e) => e.id === id));
+        }, 2000);
+      });
+    };
+
     getProducts()
       .then((response) => {
         setItem(response);
@@ -17,15 +23,9 @@ const ItemDetailContainer = () => {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [id]);
 
-  const getProducts = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(PRODUCTS.find((e) => e.id == id));
-      }, 2000);
-    });
-  };
+  const { name, stock, img, description, category } = item;
 
   return (
     <div className="relative shadow-2xl max-w-lg w-full cursor-pointer rounded-md mx-auto mt-0">

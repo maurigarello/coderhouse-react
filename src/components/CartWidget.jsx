@@ -8,7 +8,7 @@ const CartWidget = () => {
                    cursor-pointer transition-colors duration-300"
         href={() => false}
       >
-        <img className="fill-current h-7 w-7 mr-2" src={cart} />
+        <img className="fill-current h-7 w-7 mr-2" src={cart} alt={() => false}/>
       </a>
     </div>
   );
