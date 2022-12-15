@@ -1,20 +1,15 @@
 import { useState } from "react";
 
-const ItemCount = () => {
-  let stock = 10;
-
-  const [count, setCount] = useState(0);
+const ItemCount = ({ stock, initial = 1, onAdd, quantity }) => {
+  const [count, setCount] = useState(initial);
 
   const increment = () => {
-    setCount(count + 1);
+    count < stock ? setCount(count + 1) : setCount(count);
   };
 
-  const decrement = () => (count === 0 ? 0 : setCount(count - 1));
-
-  const Agregar = () =>
-    count > stock
-      ? alert("no hay stock")
-      : ((stock = stock - count), alert(`se agregaron ${count} al carrito`));
+  const decrement = () => {
+    count > initial ? setCount(count - 1) : setCount(count);
+  };
 
   return (
     <div className="flex w-28 mr-auto pt-8">
@@ -38,10 +33,10 @@ const ItemCount = () => {
         </button>
       </div>
       <button
-        onClick={Agregar}
-        className="bg-gray-700 text-white font-semibold hover:bg-gray-400 ml-20 py-2 px-4 border border-black hover:border-transparent rounded"
+        onClick={() => onAdd(count)}
+        className="bg-gray-700 text-white font-semibold hover:bg-gray-400 py-2 px-4 border border-black hover:border-transparent rounded place-content-end ml-20"
       >
-        Añadir
+        Añadir al carrito
       </button>
     </div>
   );
