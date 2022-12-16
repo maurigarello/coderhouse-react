@@ -21,8 +21,3 @@
 .App-link {
   color: #61dafb;
 }
-
-/* Hover */
-.mb-10 .mr-auto .hover\:border-transparent {
-  min-width: 10em;
-}

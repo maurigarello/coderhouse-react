@@ -1,10 +1,15 @@
+import macgyver from "../assets/carrito macgyver.png";
+import sillon_norte from "../assets/sillon_zona_norte.png";
+import escalerita_canitas from "../assets/escalerita_canitas.png";
+import sillita_pediatra_palermo from "../assets/sillita_pediatra_palermo.png";
+
 const PRODUCTS = [
   {
     id: 1,
     name: "Sillon Zona Norte",
     description: "Hecho con la pana mas fina del mercado",
     price: 1500,
-    img: "https://www.dropbox.com/s/mlor33hzk73rh0c/x14423.png?dl=1",
+    img: sillon_norte,
     stock: 14,
     category: "sillas",
   },
@@ -13,7 +18,7 @@ const PRODUCTS = [
     name: "Escalerita Las Canitas",
     description: "La navaja suiza de las escaleritas de madera",
     price: 1200,
-    img: "https://www.dropbox.com/s/1fav310i2eqkdz8/tool2.png?dl=1",
+    img: escalerita_canitas,
     stock: 12,
     category: "utilerias",
   },
@@ -22,7 +27,7 @@ const PRODUCTS = [
     name: "Sillita Pediatra Palermo",
     description: "Sillita estilo palermo soho",
     price: 1350,
-    img: "https://www.dropbox.com/s/8ymeus1n9k9bhpd/y16625.png?dl=1",
+    img: sillita_pediatra_palermo,
     stock: 6,
     category: "sillas",
   },
@@ -31,7 +36,7 @@ const PRODUCTS = [
     name: "Carrito MacGyver",
     description: "El santo grial de los carritos",
     price: 1400,
-    img: "https://www.dropbox.com/s/ykdro56f2qltxys/hh2774663-87776.png?dl=1",
+    img: macgyver,
     stock: 18,
     category: "utilerias",
   },
