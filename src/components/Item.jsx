@@ -12,7 +12,7 @@ const Item = ({ id, name, img }) => {
         <img className="mx-auto p-5" src={img} alt={`esta es una imagen del producto: `} />
       </div>
       <div className="p-8 mb-10 mt-2">
-        <p className="text-xl text-gray-500">{id}</p>
+        <p className="text-xl text-gray-500"></p>
         <h2 className="text-3xl mt-2">{name}</h2>
       </div>
     </div>
