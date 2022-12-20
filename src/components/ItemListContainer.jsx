@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ItemList from "./ItemList";
 import { PRODUCTS } from "../db/db.js";
 import { RotatingLines } from "react-loader-spinner";
+import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
 

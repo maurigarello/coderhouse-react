@@ -1,45 +1,45 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../context/CartContext";
 import ItemCount from "./ItemCount";
-import { Link } from "react-router-dom";
 
-const ItemDetail = ({ id, name, description, img, stock, initial }) => {
+const ItemDetail = ({ item }) => {
+  const { addToCart, cart, count } = useContext(CartContext);
+
   const [quantity, setQuantity] = useState(0);
 
   const onAdd = (count) => {
-    setQuantity(quantity + count);
-    console.log(`se agregaron al carrito ${count} unidades`);
+    setQuantity(count);
   };
+
+  const handleAddToCart = () => {
+    onAdd(count);
+    addToCart(item, quantity);
+  };
+
+  console.log(cart);
+  console.log(quantity);
+ 
 
   return (
     <div>
       <div className="bg-no-repeat bg-center overflow-hidden min-h-96">
         <img
           className="mx-auto p-5"
-          src={img}
+          src={item.img}
           alt={`esta es una imagen del producto`}
         />
       </div>
       <div className="p-8 mb-10 mt-2">
-        <p className="text-xl text-gray-500">{id}</p>
-        <h2 className="text-3xl mt-2">{name}</h2>
-        <h2 className="text-2xl mt-2 text-gray-700">"{description}"</h2>
-        {quantity > 0 ? (
-          <div className="flex w-28 pt-8 mx-auto items-center">
-            <Link
-              className="bg-gray-700 text-white font-semibold hover:bg-gray-400 py-2 px-4 border border-black hover:border-transparent rounded w-fit ml-20"
-              to="/cart"
-            >
-              Finalizar compra
-            </Link>
-          </div>
-        ) : (
-          <ItemCount
-            stock={stock}
-            initial={initial}
-            onAdd={onAdd}
-            quantity={quantity}
-          />
-        )}
+        <p className="text-xl text-gray-500">{item.id}</p>
+        <h2 className="text-3xl mt-2">{item.name}</h2>
+        <h2 className="text-2xl mt-2 text-gray-700">"{item.description}"</h2>
+
+        <ItemCount
+          handleAddToCart={handleAddToCart}
+          cart={cart}
+          onAdd={onAdd}
+          stock={item.stock}
+        />
       </div>
     </div>
   );

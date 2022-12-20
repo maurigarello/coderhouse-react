@@ -30,8 +30,6 @@ const ItemDetailContainer = () => {
       });
   }, [id]);
 
-  const { name, stock, img, description, category } = item;
-
   return (
     <>
       {isLoading ? (
@@ -47,13 +45,7 @@ const ItemDetailContainer = () => {
         </div>
       ) : (
         <div className="relative shadow-2xl max-w-lg w-full cursor-pointer rounded-md mx-auto mt-0">
-          <ItemDetail
-            name={name}
-            stock={stock}
-            img={img}
-            description={description}
-            category={category}
-          />
+          <ItemDetail item={item} />
         </div>
       )}
     </>

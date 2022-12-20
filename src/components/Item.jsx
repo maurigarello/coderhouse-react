@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Item = ({ id, name, category, img }) => {
+const Item = ({ id, name, img }) => {
   return (
     <div className="relative shadow-2xl max-w-lg w-full transform duration-500 hover:-translate-y-2 cursor-pointer rounded-md">
       <div className="flex absolute right-0 top-0 w-24 h-10 bg-blue-600 text-gray-100">

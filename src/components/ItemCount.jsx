@@ -1,15 +1,20 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const ItemCount = ({ stock, initial = 1, onAdd, quantity }) => {
+const ItemCount = ({ handleAddToCart, initial = 1, stock, onAdd }) => {
   const [count, setCount] = useState(initial);
 
   const increment = () => {
-    count < stock ? setCount(count + 1) : setCount(count);
+    count < stock && setCount(count + 1);
+    onAdd(count + 1);
   };
 
   const decrement = () => {
-    count > initial ? setCount(count - 1) : setCount(count);
+    count > initial && setCount(count - 1);
+    onAdd(count - 1);
   };
+
+  console.log(count);
 
   return (
     <>
@@ -23,7 +28,7 @@ const ItemCount = ({ stock, initial = 1, onAdd, quantity }) => {
           </button>
           <input
             value={count}
-            onChange={(e) => setCount(e.target.value)}
+            onChange={(e) => setCount(parseInt(e.target.value))}
             className="outline-none focus:outline-none border text-center w-full bg-white font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700"
           ></input>
           <button
@@ -34,14 +39,26 @@ const ItemCount = ({ stock, initial = 1, onAdd, quantity }) => {
           </button>
         </div>
       </div>
+
+      {/* {cart.length >= 1 ? ( */}
       <div className="flex mt-3 px-4">
         <button
-          onClick={() => onAdd(count)}
+          onClick={handleAddToCart}
           className="bg-gray-700 text-white font-semibold hover:bg-gray-400 py-2 px-4 border border-black hover:border-transparent rounded place-content-end mx-auto"
         >
           Añadir al carrito
         </button>
       </div>
+      {/* ) : ( */}
+      <div className="flex mt-3 px-4">
+        <Link
+          className="bg-gray-700 text-white font-semibold hover:bg-gray-400 py-2 px-4 border border-black hover:border-transparent rounded place-content-end mx-auto"
+          to="/cart"
+        >
+          Finalizar compra
+        </Link>
+      </div>
+      {/* )} */}
     </>
   );
 };

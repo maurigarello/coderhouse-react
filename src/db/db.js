@@ -10,17 +10,17 @@ const PRODUCTS = [
     description: "Hecho con la pana mas fina del mercado",
     price: 1500,
     img: sillon_norte,
-    stock: 14,
     category: "sillas",
+    stock: 10,
   },
   {
     id: 2,
-    name: "Escalerita Las Canitas",
+    name: "Escalerita Las Cañitas",
     description: "La navaja suiza de las escaleritas de madera",
     price: 1200,
     img: escalerita_canitas,
-    stock: 12,
     category: "utilerias",
+    stock: 10,
   },
   {
     id: 3,
@@ -28,8 +28,8 @@ const PRODUCTS = [
     description: "Sillita estilo palermo soho",
     price: 1350,
     img: sillita_pediatra_palermo,
-    stock: 6,
     category: "sillas",
+    stock: 10,
   },
   {
     id: 4,
@@ -37,8 +37,8 @@ const PRODUCTS = [
     description: "El santo grial de los carritos",
     price: 1400,
     img: macgyver,
-    stock: 18,
     category: "utilerias",
+    stock: 10,
   },
 ];
 
