@@ -41,18 +41,18 @@ const ItemCount = ({ handleAddToCart, initial = 1, stock, onAdd }) => {
       </div>
 
       {/* {cart.length >= 1 ? ( */}
-      <div className="flex mt-3 px-4">
+      <div className="flex my-auto">
         <button
           onClick={handleAddToCart}
-          className="bg-gray-700 text-white font-semibold hover:bg-gray-400 py-2 px-4 border border-black hover:border-transparent rounded place-content-end mx-auto"
+          className="flex bg-blue-600 hover:bg-blue-800 text-white text-md mt-10 py-2 px-4 mx-auto"
         >
           Añadir al carrito
         </button>
       </div>
       {/* ) : ( */}
-      <div className="flex mt-3 px-4">
+      <div className="flex my-auto">
         <Link
-          className="bg-gray-700 text-white font-semibold hover:bg-gray-400 py-2 px-4 border border-black hover:border-transparent rounded place-content-end mx-auto"
+          className="flex bg-blue-600 hover:bg-blue-800 text-white text-md mt-10 py-2 px-4 mx-auto"
           to="/cart"
         >
           Finalizar compra

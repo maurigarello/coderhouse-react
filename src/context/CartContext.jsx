@@ -30,9 +30,27 @@ export const CartContextProvider = ({ children }) => {
           {
             ...findedItem,
             cantidad: findedItem.cantidad + quantity,
-          }
-        ])
+          },
+        ]);
       }
+    }
+  };
+
+  const removeList = () => {
+    setCart([]);
+  };
+
+  const deleteItem = (itemId, quantity) => {
+    const findedItem = cart.find((item) => item.id === itemId);
+    if (findedItem) {
+      const filteredItems = cart.filter((item) => item.id !== itemId);
+      setCart([
+        ...filteredItems,
+        {
+          ...findedItem,
+          cantidad: findedItem.cantidad - quantity,
+        },
+      ]);
     }
   };
 

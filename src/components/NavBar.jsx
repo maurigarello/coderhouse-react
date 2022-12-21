@@ -2,7 +2,6 @@ import CartWidget from "./CartWidget";
 import login from "../assets/login.png";
 import register from "../assets/register.png";
 import logo from "../assets/logo.png";
-import logo_responsive from "../assets/logo_responsive.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -19,7 +18,7 @@ const Navbar = () => {
               <Link to="/" className="cursor-pointer" href="#!">
                 <h3 className="text-2xl font-medium text-blue-500">
                   <img
-                    className="hidden h-6 md:flex lg:flex md:h-8 lg:h-10 object-cover"
+                    className="h-6 md:flex lg:flex md:h-8 lg:h-10 object-cover"
                     href="#!"
                     alt="LOGO"
                     src={logo}
@@ -28,7 +27,7 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
               <Link to="/" className="cursor-pointer" href="#!">
                 <h3 className="text-2xl font-medium text-blue-500">
                   <img
@@ -39,7 +38,7 @@ const Navbar = () => {
                   />
                 </h3>
               </Link>
-            </div>
+            </div> */}
 
             <div className="items-center hidden space-x-8 lg:flex">
               <Link
