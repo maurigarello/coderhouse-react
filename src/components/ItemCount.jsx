@@ -15,6 +15,7 @@ const ItemCount = ({ handleAddToCart, initial = 1, stock, onAdd }) => {
   };
 
   console.log(count);
+  console.log(initial);
 
   return (
     <>
@@ -55,7 +56,7 @@ const ItemCount = ({ handleAddToCart, initial = 1, stock, onAdd }) => {
           className="flex bg-blue-600 hover:bg-blue-800 text-white text-md mt-10 py-2 px-4 mx-auto"
           to="/cart"
         >
-          Finalizar compra
+          Terminar compra
         </Link>
       </div>
       {/* )} */}

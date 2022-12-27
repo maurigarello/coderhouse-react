@@ -1,15 +1,30 @@
 import { Link } from "react-router-dom";
-import cart from "../assets/cart.png";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useContext, useState } from "react";
+import { CartContext } from "../context/CartContext";
 
 const CartWidget = () => {
+  const { totalCart, cart } = useContext(CartContext);
+
+  const [hover, setHover] = useState(false);
+
+  const handlemouseEnter = () => setHover(true);
+  const handlemouseLeave = () => setHover(false);
+
   return (
     <div>
-      <Link to ="/cart"
-        className="flex font-bold text-black
-                   cursor-pointer transition-colors duration-300"
-        href="#!"
-      >
-        <img className="fill-current h-7 w-7 mr-2" src={cart} alt="#!"/>
+      <Link to="/cart">
+        <AiOutlineShoppingCart
+          color={hover ? "#2b6cb0" : "#4F4E4E"}
+          onMouseEnter={handlemouseEnter}
+          onMouseLeave={handlemouseLeave}
+          size={26}
+        />
+        {cart.length > 0 && (
+          <span className="fixed top-3 md:top-4 ml-6 text-xs font-bold">
+            {totalCart()}
+          </span>
+        )}
       </Link>
     </div>
   );

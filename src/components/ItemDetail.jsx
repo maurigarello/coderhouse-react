@@ -5,7 +5,7 @@ import ItemCount from "./ItemCount";
 const ItemDetail = ({ item }) => {
   const { addToCart, cart, count } = useContext(CartContext);
 
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const onAdd = (count) => {
     setQuantity(count);
@@ -14,6 +14,7 @@ const ItemDetail = ({ item }) => {
   const handleAddToCart = () => {
     onAdd(count);
     addToCart(item, quantity);
+
   }; 
 
   console.log(cart);

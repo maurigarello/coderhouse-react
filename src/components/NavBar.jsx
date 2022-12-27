@@ -1,10 +1,21 @@
 import CartWidget from "./CartWidget";
-import login from "../assets/login.png";
-import register from "../assets/register.png";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { AiOutlineUserAdd, AiOutlineLogin } from "react-icons/ai";
+import { useState } from "react";
 
 const Navbar = () => {
+
+  const [hover, setHover] = useState({
+    register: false,
+    login: false,
+  });
+
+  const handleMouseEnter = (icon) => () =>
+    setHover((prevHover) => ({ ...prevHover, [icon]: true }));
+  const handleMouseLeave = (icon) => () =>
+    setHover((prevHover) => ({ ...prevHover, [icon]: false }));
+
   return (
     <div>
       <div className="flex flex-col items-center justify-center mt-32">
@@ -18,7 +29,7 @@ const Navbar = () => {
               <Link to="/" className="cursor-pointer" href="#!">
                 <h3 className="text-2xl font-medium text-blue-500">
                   <img
-                    className="h-6 md:flex lg:flex md:h-8 lg:h-10 object-cover"
+                    className="h-8 md:flex lg:flex lg:h-10 object-cover"
                     href="#!"
                     alt="LOGO"
                     src={logo}
@@ -26,19 +37,6 @@ const Navbar = () => {
                 </h3>
               </Link>
             </div>
-
-            {/* <div className="flex items-center">
-              <Link to="/" className="cursor-pointer" href="#!">
-                <h3 className="text-2xl font-medium text-blue-500">
-                  <img
-                    className="h-8 md:hidden lg:hidden object-cover"
-                    href="#!"
-                    alt="LOGO"
-                    src={logo_responsive}
-                  />
-                </h3>
-              </Link>
-            </div> */}
 
             <div className="items-center hidden space-x-8 lg:flex">
               <Link
@@ -60,34 +58,22 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center space-x-5">
-              <a
-                className="hidden md:block text-xl text-gray-600 hover:text-blue-500
-                  cursor-pointer transition-colors duration-300"
-                href="#!"
-              >
-                Registrarse
-              </a>
-              <img
-                className="fill-current h-7 w-7 mr-2 mt-0.5"
-                href="#!"
-                alt="#!"
-                src={register}
-              />
-
-              <a
-                className="hidden md:block text-xl text-gray-600 hover:text-blue-500
-                  cursor-pointer transition-colors duration-300"
-                href="#!"
-              >
-                Ingresar
-              </a>
-              <img
-                className="fill-current h-7 w-7 mr-2 mt-0.5"
-                href="#!"
-                alt="#!"
-                src={login}
-              />
-
+              <div>
+                <AiOutlineUserAdd
+                  size={26}
+                  color={hover.register ? "#2b6cb0" : "#4F4E4E"}
+                  onMouseEnter={handleMouseEnter("register")}
+                  onMouseLeave={handleMouseLeave("register")}
+                />
+              </div>
+              <div>
+                <AiOutlineLogin
+                  size={26}
+                  color={hover.login ? "#2b6cb0" : "#4F4E4E"}
+                  onMouseEnter={handleMouseEnter("login")}
+                  onMouseLeave={handleMouseLeave("login")}
+                />
+              </div>
               <CartWidget />
             </div>
           </nav>
