@@ -15,7 +15,6 @@ const ItemCount = ({ handleAddToCart, initial = 1, stock, onAdd }) => {
   };
 
   console.log(count);
-  console.log(initial);
 
   return (
     <>

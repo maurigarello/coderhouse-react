@@ -50,7 +50,7 @@ const Cart = () => {
                   </span>
                   <div className="flex justify-center w-1/5">
                     <button
-                      onClick={deleteItem()}
+                      onClick={() => deleteItem(item.id)}
                       className="bg-blue-600 text-white font-bold hover:bg-blue-800 py-2 px-4 mx-auto"
                     >
                       -
@@ -58,7 +58,7 @@ const Cart = () => {
                   </div>
                 </div>
               ))}
-              <div className="flex">
+              <div className="flex justify-evenly">
                 <button
                   href="#"
                   className="flex bg-blue-600 text-white hover:bg-blue-800 text-md mt-10 w-36 h-10"
@@ -68,7 +68,7 @@ const Cart = () => {
                 <Link
                   to="/"
                   href="#"
-                  className="flex bg-blue-600 text-white hover:bg-blue-800 text-md mt-10 w-36 h-10"
+                  className="flex bg-blue-600 text-white hover:bg-blue-800 text-md mt-10 w-40 h-10"
                 >
                   <span className="mx-auto my-auto">Seguir comprando</span>
                 </Link>
