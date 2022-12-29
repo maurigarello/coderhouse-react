@@ -6,6 +6,7 @@ const ItemDetail = ({ item }) => {
   const { addToCart, cart, count } = useContext(CartContext);
 
   const [quantity, setQuantity] = useState(1);
+  const [hidden, setHidden] = useState(false);
 
   const onAdd = (count) => {
     setQuantity(count);
@@ -14,11 +15,11 @@ const ItemDetail = ({ item }) => {
   const handleAddToCart = () => {
     onAdd(count);
     addToCart(item, quantity);
-
-  }; 
+    setHidden(true);
+  };
 
   console.log(cart);
-  
+
   return (
     <div>
       <div className="bg-no-repeat bg-center overflow-hidden min-h-96">
@@ -34,6 +35,7 @@ const ItemDetail = ({ item }) => {
         <h2 className="text-2xl mt-2 text-gray-700">"{item.description}"</h2>
 
         <ItemCount
+          hidden={hidden}
           handleAddToCart={handleAddToCart}
           cart={cart}
           onAdd={onAdd}

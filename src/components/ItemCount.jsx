@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const ItemCount = ({ handleAddToCart, initial = 1, stock, onAdd }) => {
+const ItemCount = ({ handleAddToCart, initial = 1, stock, onAdd, hidden }) => {
   const [count, setCount] = useState(initial);
 
   const increment = () => {
@@ -40,25 +40,25 @@ const ItemCount = ({ handleAddToCart, initial = 1, stock, onAdd }) => {
         </div>
       </div>
 
-      {/* {cart.length >= 1 ? ( */}
-      <div className="flex my-auto">
-        <button
-          onClick={handleAddToCart}
-          className="flex bg-blue-600 hover:bg-blue-800 text-white text-md mt-10 py-2 px-4 mx-auto"
-        >
-          Añadir al carrito
-        </button>
-      </div>
-      {/* ) : ( */}
-      <div className="flex my-auto">
-        <Link
-          className="flex bg-blue-600 hover:bg-blue-800 text-white text-md mt-10 py-2 px-4 mx-auto"
-          to="/cart"
-        >
-          Terminar compra
-        </Link>
-      </div>
-      {/* )} */}
+      {hidden ? (
+        <div className="flex my-auto">
+          <Link
+            className="flex bg-blue-600 hover:bg-blue-800 text-white text-md mt-10 py-2 px-4 mx-auto"
+            to="/cart"
+          >
+            Terminar compra
+          </Link>
+        </div>
+      ) : (
+        <div className="flex my-auto">
+          <button
+            onClick={handleAddToCart}
+            className="flex bg-blue-600 hover:bg-blue-800 text-white text-md mt-10 py-2 px-4 mx-auto"
+          >
+            Añadir al carrito
+          </button>
+        </div>
+      )}
     </>
   );
 };

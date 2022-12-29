@@ -1,16 +1,25 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
-  const { cart, deleteItem } = useContext(CartContext);
+  const { cart, deleteItem, removeList } = useContext(CartContext);
 
   return (
     <>
       {!cart.length ? (
-        <div className="flex justify-center mx-auto">
-          <span>No hay items en tu carrito !</span>
-          <button>ir a comprar</button>
+        <div className="flex flex-col w-64 h-64 justify-center mx-auto mt-14">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/coderhouse-ecommerce-1d45c.appspot.com/o/a1.png?alt=media&token=0b86dba6-94f8-4ba5-9227-41dbbb966b2b"
+            alt="carrito vacio"
+          />
+          <div className="my-4 text-center font-bold">
+            Tu carrito está vacío!
+          </div>
+          <div className="flex mx-auto">
+            <button className="flex justify-center items-center bg-blue-600 text-white hover:bg-blue-800 text-md w-32 h-10 my-auto">
+              Ir a comprar
+            </button>
+          </div>
         </div>
       ) : (
         <div className="container mx-auto mt-10">
@@ -46,7 +55,7 @@ const Cart = () => {
                     {item.cantidad}
                   </span>
                   <span className="text-center w-1/5 font-semibold text-sm">
-                    ${item.price}
+                    ${item.price * item.cantidad}
                   </span>
                   <div className="flex justify-center w-1/5">
                     <button
@@ -58,20 +67,14 @@ const Cart = () => {
                   </div>
                 </div>
               ))}
-              <div className="flex justify-evenly">
+              <div className="flex justify-center">
                 <button
+                  onClick={() => removeList()}
                   href="#"
                   className="flex bg-blue-600 text-white hover:bg-blue-800 text-md mt-10 w-36 h-10"
                 >
                   <span className="mx-auto my-auto">Vaciar Carrito</span>
                 </button>
-                <Link
-                  to="/"
-                  href="#"
-                  className="flex bg-blue-600 text-white hover:bg-blue-800 text-md mt-10 w-40 h-10"
-                >
-                  <span className="mx-auto my-auto">Seguir comprando</span>
-                </Link>
               </div>
             </div>
           </div>
