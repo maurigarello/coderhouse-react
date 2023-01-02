@@ -14,8 +14,6 @@ const ItemCount = ({ handleAddToCart, initial = 1, stock, onAdd, hidden }) => {
     onAdd(count - 1);
   };
 
-  console.log(count);
-
   return (
     <>
       <div className="flex w-28 pt-8 mx-auto">

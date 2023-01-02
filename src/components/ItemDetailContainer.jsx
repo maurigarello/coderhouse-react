@@ -1,32 +1,23 @@
 import ItemDetail from "./ItemDetail";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { PRODUCTS } from "../db/db";
 import { RotatingLines } from "react-loader-spinner";
+import { ProductsContext } from "../context/ProductsContext";
 
 const ItemDetailContainer = () => {
+  const { products, getProducts } = useContext(ProductsContext);
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
-  const [item, setItem] = useState({});
+  const [item, setItem] = useState([]);
 
   useEffect(() => {
-    const getProducts = () => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          // eslint-disable-next-line
-          resolve(PRODUCTS.find((e) => e.id == id));
-        }, 2000);
-      });
-    };
-
     getProducts()
-      .then((response) => {
-        setItem(response);
+      .then(() => {
+        setItem(products.find((e) => e.id == id));
         setIsLoading(false);
       })
-      .catch((err) => {
-        console.error(err);
-        setIsLoading(false);
+      .catch((error) => {
+        console.error(error);
       });
   }, [id]);
 

@@ -18,8 +18,6 @@ const ItemDetail = ({ item }) => {
     setHidden(true);
   };
 
-  console.log(cart);
-
   return (
     <div>
       <div className="bg-no-repeat bg-center overflow-hidden min-h-96">

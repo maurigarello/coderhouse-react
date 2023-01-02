@@ -1,24 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { ProductsContext } from "../context/ProductsContext.jsx";
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
-  const [products, setProducts] = useState([]);
+  const { products, getProducts } = useContext(ProductsContext);
   const [isLoading, setIsLoading] = useState(true);
   const { categoryId } = useParams();
 
-  const getProductos = async () => {
-    const db = getFirestore();
-    const collectionRef = collection(db, "items");
-    const snapshot = await getDocs(collectionRef);
-    setProducts(snapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
-    setIsLoading(false);
-  };
-
   useEffect(() => {
-    getProductos();
+    getProducts()
+      .then(() => {
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, [categoryId]);
 
   return (
