@@ -1,46 +1,25 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { PRODUCTS } from "../db/db.js";
 import { RotatingLines } from "react-loader-spinner";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
-
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { categoryId } = useParams();
 
-  useEffect(() => {
-    if (categoryId) {
-      getProducts()
-        .then((response) => {
-          setProducts(response.filter((e) => e.category === categoryId));
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          console.error(err);
-          setIsLoading(false);
-        });
-    } else {
-      getProducts()
-        .then((response) => {
-          setProducts(response);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          console.error(err);
-          setIsLoading(false);
-        });
-    }
-  }, [categoryId]);
-
-  const getProducts = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(PRODUCTS);
-      }, 2000);
-    });
+  const getProductos = async () => {
+    const db = getFirestore();
+    const collectionRef = collection(db, "items");
+    const snapshot = await getDocs(collectionRef);
+    setProducts(snapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
+    setIsLoading(false);
   };
+
+  useEffect(() => {
+    getProductos();
+  }, [categoryId]);
 
   return (
     <div className="container mx-auto p-10 md:py-20 px-0 md:p-10 md:px-0">
@@ -58,7 +37,6 @@ const ItemListContainer = () => {
       ) : (
         <div className="p-5 md:p-0 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 items-center mx-auto">
           <ItemList products={products} />
-          
         </div>
       )}
     </div>

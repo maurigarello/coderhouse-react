@@ -2,21 +2,21 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
-  const { cart, deleteItem, removeList } = useContext(CartContext);
+  const { cart, deleteItem, removeList, totalCartPrice } = useContext(CartContext);
 
   return (
     <>
       {!cart.length ? (
-        <div className="flex flex-col w-64 h-64 justify-center mx-auto mt-14">
+        <div className="flex flex-col md:w-4/12 md:h-4/12 w-64 h-64 justify-center mx-auto mt-28 md:mt-44">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/coderhouse-ecommerce-1d45c.appspot.com/o/a1.png?alt=media&token=0b86dba6-94f8-4ba5-9227-41dbbb966b2b"
             alt="carrito vacio"
           />
-          <div className="my-4 text-center font-bold">
+          <div className="my-4 text-center font-bold text-xl">
             Tu carrito está vacío!
           </div>
           <div className="flex mx-auto">
-            <button className="flex justify-center items-center bg-blue-600 text-white hover:bg-blue-800 text-md w-32 h-10 my-auto">
+            <button className="flex justify-center items-center bg-gray-800 hover:bg-gray-600 text-white text-md w-32 h-10 my-auto">
               Ir a comprar
             </button>
           </div>
@@ -60,21 +60,24 @@ const Cart = () => {
                   <div className="flex justify-center w-1/5">
                     <button
                       onClick={() => deleteItem(item.id)}
-                      className="bg-blue-600 text-white font-bold hover:bg-blue-800 py-2 px-4 mx-auto"
+                      className="bg-gray-700 hover:bg-gray-500 text-white font-bold py-2 px-4 mx-auto"
                     >
                       -
                     </button>
                   </div>
                 </div>
               ))}
-              <div className="flex justify-center">
+              <div className="flex justify-between md:justify-evenly">
                 <button
                   onClick={() => removeList()}
                   href="#"
-                  className="flex bg-blue-600 text-white hover:bg-blue-800 text-md mt-10 w-36 h-10"
+                  className="flex bg-gray-700 hover:bg-gray-500 text-white text-md mt-10 w-36 h-10"
                 >
                   <span className="mx-auto my-auto">Vaciar Carrito</span>
                 </button>
+                <div className="flex mt-10">
+                  <span className="font-semibold text-white bg-black border border-black my-auto px-4 py-1.5">Total: {totalCartPrice()}</span>
+                </div>
               </div>
             </div>
           </div>

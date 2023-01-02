@@ -45,7 +45,7 @@ const Navbar = () => {
                   cursor-pointer transition-colors duration-300"
                 href="#!"
               >
-                Sillas
+                SILLAS
               </Link>
               <Link
                 to="/category/utilerias"
@@ -53,7 +53,7 @@ const Navbar = () => {
                   cursor-pointer transition-colors duration-300"
                 href="#!"
               >
-                Utilerias
+                UTILERIAS
               </Link>
             </div>
 

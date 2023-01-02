@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Item = ({ id, name, img }) => {
   return (
     <div className="relative shadow-2xl max-w-lg w-full transform duration-500 hover:-translate-y-2 cursor-pointer rounded-md">
-      <div className="flex absolute right-0 top-0 w-24 h-10 bg-blue-600 hover:bg-blue-800 text-gray-100">
+      <div className="flex absolute right-0 top-0 w-24 h-10 bg-gray-700 hover:bg-gray-600 text-gray-100">
         <Link className="w-full text-center mt-1" to={`/item/${id}`}>
           <button className="p-px">Ver Detalle</button>
         </Link>
