@@ -5,12 +5,13 @@ import { ProductsContext } from "../context/ProductsContext.jsx";
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
-  const { products, getProducts } = useContext(ProductsContext);
+  const { products, getCategoryProducts } = useContext(ProductsContext);
   const [isLoading, setIsLoading] = useState(true);
   const { categoryId } = useParams();
 
+
   useEffect(() => {
-    getProducts()
+    getCategoryProducts(categoryId)
       .then(() => {
         setIsLoading(false);
       })

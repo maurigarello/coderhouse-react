@@ -40,20 +40,20 @@ const Navbar = () => {
 
             <div className="items-center hidden space-x-8 lg:flex">
               <Link
-                to="/category/sillas"
+                to="/category/electro"
                 className="flex text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
                 href="#!"
               >
-                SILLAS
+                ELECTRO
               </Link>
               <Link
-                to="/category/utilerias"
+                to="/category/muebles"
                 className="flex text-xl text-gray-600 hover:text-blue-500
                   cursor-pointer transition-colors duration-300"
                 href="#!"
               >
-                UTILERIAS
+                MUEBLES
               </Link>
             </div>
 
