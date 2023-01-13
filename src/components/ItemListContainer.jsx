@@ -18,7 +18,7 @@ const ItemListContainer = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, [categoryId]);
+  }, [categoryId, getCategoryProducts]);
 
   return (
     <div className="container mx-auto p-10 md:py-20 px-0 md:p-10 md:px-0">
