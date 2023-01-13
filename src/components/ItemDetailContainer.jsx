@@ -14,13 +14,14 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     getProducts()
       .then(() => {
+        // eslint-disable-next-line
         setItem(products.find((e) => e.id == id));
         setIsLoading(false);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, [id]);
+  }, [id, getProducts, products]);
 
   return (
     <>
