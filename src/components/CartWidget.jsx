@@ -8,6 +8,7 @@ const CartWidget = () => {
 
   const [hover, setHover] = useState(false);
 
+  // funciones para determinar si el mouse esta sobre el item o no //
   const handlemouseEnter = () => setHover(true);
   const handlemouseLeave = () => setHover(false);
 
@@ -15,13 +16,16 @@ const CartWidget = () => {
     <div>
       <Link to="/cart">
         <AiOutlineShoppingCart
-          color={hover ? "#2b6cb0" : "#4F4E4E"}
+          color={hover ? "#6b727c" : "#333333"}
           onMouseEnter={handlemouseEnter}
           onMouseLeave={handlemouseLeave}
           size={26}
         />
         {cart.length > 0 && (
-          <span className="fixed top-3 md:top-4 ml-6 text-xs font-bold">
+          <span
+            className="fixed top-3 md:top-4 ml-6 text-xs font-bold"
+            style={{ color: hover ? "#6b727c" : "#333333" }}
+          >
             {totalCart()}
           </span>
         )}

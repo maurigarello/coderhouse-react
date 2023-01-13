@@ -19,18 +19,28 @@ const ItemDetail = ({ item }) => {
   };
 
   return (
-    <div>
-      <div className="bg-no-repeat bg-center overflow-hidden min-h-96">
+    <div className="">
+      <div className="bg-no-repeat bg-center overflow-hidden">
         <img
-          className="mx-auto p-5"
+          className="mx-auto p-5 max-w-sm"
           src={item.img}
           alt={`esta es una imagen del producto`}
         />
       </div>
       <div className="p-8 mb-10 mt-2">
-        <p className="text-xl text-gray-500"></p>
-        <h2 className="text-3xl mt-2">{item.name}</h2>
-        <h2 className="text-2xl mt-2 text-gray-700">"{item.description}"</h2>
+        <h2 className="text-3xl mt-2 text-center mx-auto">{item.name}</h2>
+        <h2 className="text-2xl mt-2 italic text-gray-700 text-center mx-auto">
+          "{item.description}"
+        </h2>
+        <div className="flex">
+          <span className="mx-auto mt-2 text-black bg-gray-200 px-2 py-1 border border-gray-300 text-xl">
+            Monto: {(item.price * quantity).toLocaleString("es-ar", {
+                      style: "currency",
+                      currency: "ARS",
+                      minimumFractionDigits: 2,
+                    })}
+          </span>
+        </div>
 
         <ItemCount
           hidden={hidden}

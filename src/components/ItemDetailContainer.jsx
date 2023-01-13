@@ -10,6 +10,7 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
   const [item, setItem] = useState([]);
 
+  // uso del useeffect para traer los productos desde la funcion exportada por context y luego filtrar por id, teniendo como dependencia el mismo // 
   useEffect(() => {
     getProducts()
       .then(() => {
@@ -35,7 +36,7 @@ const ItemDetailContainer = () => {
           />
         </div>
       ) : (
-        <div className="relative shadow-2xl max-w-lg w-full cursor-pointer rounded-md mx-auto mt-0">
+        <div className="relative shadow-2xl max-w-lg w-full cursor-pointer rounded-md mx-auto">
           <ItemDetail item={item} />
         </div>
       )}

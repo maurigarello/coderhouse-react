@@ -10,7 +10,7 @@ const Navbar = () => {
     register: false,
     login: false,
   });
-
+// funciones para determinar si el mouse esta sobre el objeto o no, pasandole un callback "icon" //
   const handleMouseEnter = (icon) => () =>
     setHover((prevHover) => ({ ...prevHover, [icon]: true }));
   const handleMouseLeave = (icon) => () =>
@@ -41,7 +41,7 @@ const Navbar = () => {
             <div className="items-center hidden space-x-8 lg:flex">
               <Link
                 to="/category/electro"
-                className="flex text-xl text-gray-600 hover:text-blue-500
+                className="flex text-xl italic hover:text-black text-gray-600
                   cursor-pointer transition-colors duration-300"
                 href="#!"
               >
@@ -49,7 +49,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/category/muebles"
-                className="flex text-xl text-gray-600 hover:text-blue-500
+                className="flex text-xl italic hover:text-black text-gray-600
                   cursor-pointer transition-colors duration-300"
                 href="#!"
               >
@@ -61,7 +61,7 @@ const Navbar = () => {
               <div>
                 <AiOutlineUserAdd
                   size={26}
-                  color={hover.register ? "#2b6cb0" : "#4F4E4E"}
+                  color={hover.register ? "#6b727c" : "#333333"}
                   onMouseEnter={handleMouseEnter("register")}
                   onMouseLeave={handleMouseLeave("register")}
                 />
@@ -69,7 +69,7 @@ const Navbar = () => {
               <div>
                 <AiOutlineLogin
                   size={26}
-                  color={hover.login ? "#2b6cb0" : "#4F4E4E"}
+                  color={hover.login ? "#6b727c" : "#333333"}
                   onMouseEnter={handleMouseEnter("login")}
                   onMouseLeave={handleMouseLeave("login")}
                 />

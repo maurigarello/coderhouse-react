@@ -9,7 +9,7 @@ const ItemListContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { categoryId } = useParams();
 
-
+// uso de useeffect para traer los productos filtrados por categoria y tener como dependencia el categoryID //
   useEffect(() => {
     getCategoryProducts(categoryId)
       .then(() => {

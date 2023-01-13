@@ -1,83 +1,128 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import { AiOutlineCloseSquare } from "react-icons/ai";
 
 const Cart = () => {
-  const { cart, deleteItem, removeList, totalCartPrice } = useContext(CartContext);
+  const { cart, deleteItem, removeList, totalCartPrice, totalCart } =
+    useContext(CartContext);
+  const [hover, setHover] = useState(false);
+  const handlemouseEnter = () => setHover(true);
+  const handlemouseLeave = () => setHover(false);
 
   return (
     <>
       {!cart.length ? (
-        <div className="flex flex-col md:w-4/12 md:h-4/12 w-64 h-64 justify-center mx-auto mt-28 md:mt-44">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/coderhouse-ecommerce-1d45c.appspot.com/o/a1.png?alt=media&token=0b86dba6-94f8-4ba5-9227-41dbbb966b2b"
-            alt="carrito vacio"
-          />
-          <div className="my-4 text-center font-bold text-xl">
-            Tu carrito está vacío!
-          </div>
-          <div className="flex mx-auto">
-            <button className="flex justify-center items-center bg-gray-800 hover:bg-gray-600 text-white text-md w-32 h-10 my-auto">
-              Ir a comprar
-            </button>
+        <div className="flex min-h-screen -mb-48flex-col">
+          <div className="m-auto mt-64">
+            <p className="pl-4 font-medium text-xs md:text-xl text-gray-700 tracking-wider leading-loose uppercase">
+              Tu carrito está vacío. Por favor, agregá algún producto para poder
+              continuar.
+            </p>
+            <Link
+              to="/"
+              className="pl-4 text-2xl text-gray-600 hover:text-black flex flex-row items-center mt-3"
+            >
+              ➲ Volver al inicio
+            </Link>
           </div>
         </div>
       ) : (
-        <div className="container mx-auto mt-10">
-          <div className="flex shadow-md my-10">
-            <div className="w-full bg-white px-10 py-10">
-              <div className="flex justify-between border-b pb-8">
-                <h1 className="font-semibold text-2xl">Carrito de Compras</h1>
-              </div>
-              <div className="flex mt-10 mb-5">
-                <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
-                  Detalle del producto
-                </h3>
-                <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">
-                  Cantidad
-                </h3>
-                <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">
-                  Precio
-                </h3>
-              </div>
+        <div className="mx-6">
+          <div className="flex flex-col justify-between w-full lg:max-w-7xl xl:m-auto">
+            <h1 className="font-medium text-lg text-gray-800 tracking-wider leading-tight uppercase self-center mb-6">
+              Carrito
+            </h1>
 
-              {cart.map((item) => (
-                <div
-                  key={item.id}
-                  className="flex items-center hover:bg-sky-100 -mx-8 px-6 py-5"
-                >
-                  <div className="flex w-2/5">
-                    <div className="w-28 md:ml-8">
-                      <img className="h-24" src={item.img} alt={item.name} />
-                    </div>
-                  </div>
+            <table className="inline-block overflow-x-auto whitespace-nowrap mt-6">
+              <thead className="h-10 text-center">
+                <tr className="border-gray-200 border-b">
+                  <th className="text-gray-700 tracking-wider leading-loose text-left pl-4">
+                    Producto
+                  </th>
+                  <th className="text-gray-700 tracking-wider leading-loose px-6 lg:px-16 xl:px-32">
+                    Precio
+                  </th>
+                  <th className="text-gray-700 tracking-wider leading-loose px-6 md:px-2 lg:px-8 xl:px-12">
+                    Cantidad
+                  </th>
+                  <th className="text-gray-700 tracking-wider leading-loose px-6 md:px-2 lg:px-16 xl:px-28">
+                    Subtotal
+                  </th>
+                  <th />
+                </tr>
+              </thead>
 
-                  <span className="text-center w-1/5 font-semibold text-sm">
-                    {item.cantidad}
-                  </span>
-                  <span className="text-center w-1/5 font-semibold text-sm">
-                    ${item.price * item.cantidad}
-                  </span>
-                  <div className="flex justify-center w-1/5">
-                    <button
-                      onClick={() => deleteItem(item.id)}
-                      className="bg-gray-700 hover:bg-gray-500 text-white font-bold py-2 px-4 mx-auto"
-                    >
-                      -
-                    </button>
-                  </div>
+              <tbody className="w-full text-center">
+                {cart.map((item) => (
+                  <tr key={item.id} className="border-gray-200 border-b">
+                    <th className="flex flex-row">
+                      <img
+                        className="pr-6 py-6 md:h-32 lg:h-48 xl:h-48"
+                        src={item.img}
+                        alt={item.name}
+                      />
+                      <div className="flex flex-col text-left">
+                        <p className="font-medium text-xs text-gray-700 tracking-wider leading-loose uppercase"></p>
+                      </div>
+                    </th>
+                    <th className="font-light text-gray-600 tracking-wide leading-normal">
+                      {item.price}
+                    </th>
+                    <th className="font-light text-gray-600 tracking-wide leading-normal">
+                      {item.cantidad}
+                    </th>
+                    <th className="font-light text-gray-600 tracking-wide leading-normal">
+                      {item.price * item.cantidad}
+                    </th>
+                    <th className="md:px-56 lg:pl-2 xl:pl-24">
+                      <button onClick={() => deleteItem(item.id)}>
+                        <AiOutlineCloseSquare
+                          size={23}
+                          color={hover ? "#000000" : "#333333"}
+                          onMouseEnter={handlemouseEnter}
+                          onMouseLeave={handlemouseLeave}
+                        />
+                      </button>
+                    </th>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <div className="flex flex-col md:flex-row justify-between mt-6 mb-3 mx-4">
+              <button
+                onClick={() => removeList()}
+                className="font-medium text-gray-700 hover:text-black tracking-wider leading-loose flex flex-row items-center self-start mb-4"
+              >
+                Vaciar carrito
+              </button>
+
+              <div className="flex flex-col self-start w-full md:w-2/5">
+                <div className="flex flex-row justify-between font-light text-gray-600 tracking-wide leading-normal lowercase">
+                  <p>Cantidad de items:</p>
+                  <p>{totalCart()}</p>
                 </div>
-              ))}
-              <div className="flex justify-between md:justify-evenly">
-                <button
-                  onClick={() => removeList()}
-                  href="#"
-                  className="flex bg-gray-700 hover:bg-gray-500 text-white text-md mt-10 w-36 h-10"
+                <div className="flex flex-row justify-between font-light text-gray-600 tracking-wide leading-normal lowercase">
+                  <p>Gastos de envío:</p>
+                  <p>¡Envío gratis!</p>
+                </div>
+                <div className="flex flex-row justify-between font-semibold text-gray-700 tracking-wider leading-loose uppercase">
+                  <p>Total:</p>
+                  <p>{totalCartPrice()}</p>
+                </div>
+                <Link
+                  to="/checkout"
+                  className="text-white tracking-wider leading-normal uppercase select-none focus:outline-non bg-gray-700 hover:bg-black focus:ring-transparent w-full text-center py-3 mt-3"
                 >
-                  <span className="mx-auto my-auto">Vaciar Carrito</span>
-                </button>
-                <div className="flex mt-10">
-                  <span className="font-semibold text-white bg-black border border-black my-auto px-4 py-1.5">Total: {totalCartPrice()}</span>
-                </div>
+                  Checkout
+                </Link>
+                <Link
+                  to="/"
+                  className="font-semibold text-gray-700 hover:text-black tracking-wide leading-normal flex flex-row items-center mt-2"
+                >
+                  Seguir comprando
+                </Link>
               </div>
             </div>
           </div>
