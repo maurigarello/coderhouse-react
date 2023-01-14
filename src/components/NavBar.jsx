@@ -28,7 +28,7 @@ const Navbar = () => {
             <div className="flex items-center">
               <Link to="/" className="cursor-pointer" href="#!">
                 <h3 className="text-2xl font-medium text-blue-500">
-                  <img
+                  <im
                     className="h-8 md:flex lg:flex lg:h-10 object-cover"
                     href="#!"
                     alt="LOGO"
