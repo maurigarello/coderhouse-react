@@ -34,11 +34,12 @@ const ItemDetail = ({ item }) => {
         </h2>
         <div className="flex">
           <span className="mx-auto mt-2 text-black bg-gray-200 px-2 py-1 border border-gray-300 text-xl">
-            Monto: {(item.price * quantity).toLocaleString("es-ar", {
-                      style: "currency",
-                      currency: "ARS",
-                      minimumFractionDigits: 2,
-                    })}
+            Monto:
+            {(item.price * quantity).toLocaleString("es-ar", {
+              style: "currency",
+              currency: "ARS",
+              minimumFractionDigits: 2,
+            })}
           </span>
         </div>
 
