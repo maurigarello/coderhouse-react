@@ -28,12 +28,12 @@ const ItemDetail = ({ item }) => {
         />
       </div>
       <div className="p-8 mb-10 mt-2">
-        <h2 className="text-3xl mt-2 text-center mx-auto">{item.name}</h2>
-        <h2 className="text-2xl mt-2 italic text-gray-700 text-center mx-auto">
+        <h2 className="font-medium text-xl text-gray-800 tracking-wider leading-tight uppercase  mt-2 text-center mx-auto">{item.name}</h2>
+        <h2 className="font-regular text-lg text-gray-600 tracking-wide leading-normal mt-2 italic text-center mx-auto">
           "{item.description}"
         </h2>
         <div className="flex">
-          <span className="mx-auto mt-2 text-black bg-gray-200 px-2 py-1 border border-gray-300 text-xl">
+          <span className="font-regular text-md text-gray-600 tracking-wide leading-normal mx-auto mt-2 bg-gray-200 px-2 py-1 border border-gray-300">
             Monto:
             {(item.price * quantity).toLocaleString("es-ar", {
               style: "currency",

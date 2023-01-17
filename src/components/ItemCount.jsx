@@ -41,7 +41,7 @@ const ItemCount = ({ handleAddToCart, initial = 1, stock, onAdd, hidden }) => {
       {hidden ? (
         <div className="flex my-auto">
           <Link
-            className="flex bg-gray-700 hover:bg-black text-white text-md mt-10 py-2 px-4 mx-auto"
+            className="flex font-regular text-md tracking-wide leading-normal bg-gray-700 hover:bg-black text-white text-md mt-10 py-2 px-4 mx-auto"
             to="/cart"
           >
             Ir al carrito
@@ -51,7 +51,7 @@ const ItemCount = ({ handleAddToCart, initial = 1, stock, onAdd, hidden }) => {
         <div className="flex my-auto">
           <button
             onClick={handleAddToCart}
-            className="flex bg-gray-700 hover:bg-black text-white text-md mt-10 py-2 px-4 mx-auto"
+            className="flex font-regular text-md tracking-wide leading-normal bg-gray-700 hover:bg-black text-white text-md mt-10 py-2 px-4 mx-auto"
           >
             Añadir al carrito
           </button>
