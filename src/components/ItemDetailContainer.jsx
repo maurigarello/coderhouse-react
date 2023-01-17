@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
   const [item, setItem] = useState([]);
 
-  // uso del useeffect para traer los productos desde la funcion exportada por context y luego filtrar por id, teniendo como dependencia el mismo // 
+  // uso del useeffect para traer los productos desde la funcion exportada por context y luego filtrar por id, teniendo como dependencia el mismo //
   useEffect(() => {
     getProducts()
       .then(() => {
@@ -21,7 +21,8 @@ const ItemDetailContainer = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, [id, getProducts, products]);
+    // eslint-disable-next-line
+  }, [id]);
 
   return (
     <>
