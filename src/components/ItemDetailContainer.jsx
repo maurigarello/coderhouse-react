@@ -38,7 +38,7 @@ const ItemDetailContainer = () => {
           />
         </div>
       ) : (
-        <div className="relative shadow-2xl max-w-lg w-full cursor-pointer rounded-md mx-auto">
+        <div className="relative shadow-2xl max-w-lg w-full rounded-md mx-auto">
           <ItemDetail item={item} />
         </div>
       )}

@@ -21,14 +21,16 @@ const ItemDetail = ({ item }) => {
   return (
     <div className="">
       <div className="bg-no-repeat bg-center overflow-hidden">
-        <img
-          className="mx-auto p-5 max-w-sm"
-          src={item.img}
-          alt={`esta es una imagen del producto`}
-        />
+          <img
+            className="mx-auto p-5 max-w-sm"
+            src={item.img}
+            alt={`esta es una imagen del producto`}
+          />
       </div>
       <div className="p-8 mb-10 mt-2">
-        <h2 className="font-medium text-xl text-gray-800 tracking-wider leading-tight uppercase  mt-2 text-center mx-auto">{item.name}</h2>
+        <h2 className="font-medium text-xl text-gray-800 tracking-wider leading-tight uppercase  mt-2 text-center mx-auto">
+          {item.name}
+        </h2>
         <h2 className="font-regular text-lg text-gray-600 tracking-wide leading-normal mt-2 italic text-center mx-auto">
           "{item.description}"
         </h2>
