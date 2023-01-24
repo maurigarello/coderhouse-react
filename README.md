@@ -17,7 +17,7 @@ En el mismo, me enfrente con el reto de construir desde cero un ecommerce totalm
 [[VER CÓDIGO]](https://github.com/maurigarello/coderhouse-react)
 [[LIVE DEMO]](https://maurimart.netlify.app//)
 
-![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/1.png)
+![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/01.png)
 
 ![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/2.png)
 
