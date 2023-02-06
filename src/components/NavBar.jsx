@@ -5,12 +5,11 @@ import { AiOutlineUserAdd, AiOutlineLogin } from "react-icons/ai";
 import { useState } from "react";
 
 const Navbar = () => {
-
   const [hover, setHover] = useState({
     register: false,
     login: false,
   });
-// funciones para determinar si el mouse esta sobre el objeto o no, pasandole un callback "icon" //
+  // funciones para determinar si el mouse esta sobre el objeto o no, pasandole un callback "icon" //
   const handleMouseEnter = (icon) => () =>
     setHover((prevHover) => ({ ...prevHover, [icon]: true }));
   const handleMouseLeave = (icon) => () =>
@@ -59,12 +58,14 @@ const Navbar = () => {
 
             <div className="flex items-center space-x-5">
               <div>
-                <AiOutlineUserAdd
-                  size={26}
-                  color={hover.register ? "#6b727c" : "#333333"}
-                  onMouseEnter={handleMouseEnter("register")}
-                  onMouseLeave={handleMouseLeave("register")}
-                />
+                <Link to="/login">
+                  <AiOutlineUserAdd
+                    size={26}
+                    color={hover.register ? "#6b727c" : "#333333"}
+                    onMouseEnter={handleMouseEnter("register")}
+                    onMouseLeave={handleMouseLeave("register")}
+                  />
+                </Link>
               </div>
               <div>
                 <AiOutlineLogin

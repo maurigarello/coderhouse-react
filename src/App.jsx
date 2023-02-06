@@ -4,6 +4,7 @@ import Navbar from "./components/NavBar";
 import Cart from "./components/Cart";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Checkout from "./components/Checkout";
+import Login from "./components/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContextProvider } from "./context/CartContext";
 import { ProductsContextProvider } from "./context/ProductsContext";
@@ -23,6 +24,7 @@ function App() {
             />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </BrowserRouter>
       </CartContextProvider>
