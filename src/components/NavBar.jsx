@@ -40,7 +40,7 @@ const Navbar = () => {
             <div className="items-center hidden space-x-8 lg:flex">
               <Link
                 to="/category/electro"
-                className="flex text-xl italic hover:text-black text-gray-600
+                className="flex border border-black px-2 py-2 text-xl italic hover:text-black text-gray-600
                   cursor-pointer transition-colors duration-300"
                 href="#!"
               >
@@ -48,7 +48,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/category/muebles"
-                className="flex text-xl italic hover:text-black text-gray-600
+                className="flex border border-black px-2 py-2 text-xl italic hover:text-black text-gray-600
                   cursor-pointer transition-colors duration-300"
                 href="#!"
               >
@@ -58,7 +58,7 @@ const Navbar = () => {
 
             <div className="flex items-center space-x-5">
               <div>
-                <Link to="/login">
+                <Link to="/register">
                   <AiOutlineUserAdd
                     size={26}
                     color={hover.register ? "#6b727c" : "#333333"}
@@ -68,12 +68,14 @@ const Navbar = () => {
                 </Link>
               </div>
               <div>
-                <AiOutlineLogin
-                  size={26}
-                  color={hover.login ? "#6b727c" : "#333333"}
-                  onMouseEnter={handleMouseEnter("login")}
-                  onMouseLeave={handleMouseLeave("login")}
-                />
+                <Link to="/login">
+                  <AiOutlineLogin
+                    size={26}
+                    color={hover.login ? "#6b727c" : "#333333"}
+                    onMouseEnter={handleMouseEnter("login")}
+                    onMouseLeave={handleMouseLeave("login")}
+                  />
+                </Link>
               </div>
               <CartWidget />
             </div>

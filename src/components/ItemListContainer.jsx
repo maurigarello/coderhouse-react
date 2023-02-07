@@ -9,16 +9,21 @@ const ItemListContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { categoryId } = useParams();
 
-// uso de useeffect para traer los productos filtrados por categoria y tener como dependencia el categoryID //
+  // uso de useeffect para traer los productos filtrados por categoria y tener como dependencia el categoryID //
   useEffect(() => {
-    getCategoryProducts(categoryId)
-      .then(() => {
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [categoryId, getCategoryProducts]);
+    if (!products.length) {
+      getCategoryProducts(categoryId)
+        .then(() => {
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      setIsLoading(false);
+    }
+    // eslint-disable-next-line
+  }, [categoryId, products]);
 
   return (
     <div className="container mx-auto p-10 md:py-20 px-0 md:p-10 md:px-0">

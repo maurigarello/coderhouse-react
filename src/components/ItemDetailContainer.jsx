@@ -12,17 +12,21 @@ const ItemDetailContainer = () => {
 
   // uso del useeffect para traer los productos desde la funcion exportada por context y luego filtrar por id, teniendo como dependencia el mismo //
   useEffect(() => {
-    getProducts()
-      .then(() => {
-        // eslint-disable-next-line
-        setItem(products.find((e) => e.id == id));
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    if (!products.length) {
+      getProducts()
+        .then(() => {
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      // eslint-disable-next-line
+      setItem(products.find((e) => e.id == id));
+      setIsLoading(false);
+    }
     // eslint-disable-next-line
-  }, [id]);
+  }, [id, products]);
 
   return (
     <>
