@@ -45,9 +45,11 @@ export const ProductsContextProvider = ({ children }) => {
         getProducts,
         getCategoryProducts,
         products,
+        cachedData,
       }}
     >
       {children}
     </ProductsContext.Provider>
   );
 };
+

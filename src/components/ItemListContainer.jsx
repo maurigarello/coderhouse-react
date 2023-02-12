@@ -5,13 +5,17 @@ import { ProductsContext } from "../context/ProductsContext.jsx";
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
-  const { products, getCategoryProducts } = useContext(ProductsContext);
+  const { products, getCategoryProducts, cachedData } =
+    useContext(ProductsContext);
   const [isLoading, setIsLoading] = useState(true);
+  const [prevCategoryId, setPrevCategoryId] = useState(null);
   const { categoryId } = useParams();
 
   // uso de useeffect para traer los productos filtrados por categoria y tener como dependencia el categoryID //
   useEffect(() => {
-    if (!products.length) {
+    if (categoryId !== prevCategoryId) {
+      setPrevCategoryId(categoryId);
+      setIsLoading(true);
       getCategoryProducts(categoryId)
         .then(() => {
           setIsLoading(false);
@@ -23,7 +27,10 @@ const ItemListContainer = () => {
       setIsLoading(false);
     }
     // eslint-disable-next-line
-  }, [categoryId, products]);
+  }, [categoryId, products, cachedData]);
+
+  console.log(cachedData);
+  console.log(categoryId);
 
   return (
     <div className="container mx-auto p-10 md:py-20 px-0 md:p-10 md:px-0">
