@@ -10,35 +10,39 @@ const Register = () => {
         <form className="mt-6">
           <div className="mb-2">
             <label
-              for="email"
+              htmlFor="email"
+              autoComplete="username"
               className="block text-sm font-semibold text-gray-600 tracking-wide leading-normal"
             >
               Ingrese un email
             </label>
             <input
               type="email"
+              autoComplete="username"
               className="block tracking-wide leading-normal w-full px-4 py-2 mt-2 text-gray-900 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
           <div className="mb-2">
             <label
-              for="password"
+              htmlFor="password"
               className="block text-sm font-semibold text-gray-600 tracking-wide leading-normal"
             >
               Ingrese una contraseña (debe tener al menos 8 caracteres)
             </label>
             <input
               type="password"
+              autoComplete="current-password"
               className="block tracking-wide leading-normal w-full px-4 py-2 mt-2 text-gray-800 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
             <label
-              for="password"
+              htmlFor="password"
               className="block text-sm font-semibold text-gray-600 tracking-wide leading-normal"
             >
               Ingrese su contraseña nuevamente
             </label>
             <input
               type="password"
+              autoComplete="current-password"
               className="block tracking-wide leading-normal w-full px-4 py-2 mt-2 text-gray-800 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
