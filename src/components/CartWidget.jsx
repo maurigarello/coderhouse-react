@@ -13,7 +13,7 @@ const CartWidget = () => {
   const handlemouseLeave = () => setHover(false);
 
   return (
-    <div>
+    <div className="flex my-auto">
       <Link to="/cart">
         <AiOutlineShoppingCart
           color={hover ? "#6b727c" : "#333333"}
