@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 
 const Email = () => {
   const { email } = useContext(AuthContext);
+  
 
   return (
     <div className="flex font-thin my-auto text-sm md:text-lg cursor-pointer mr-4">{`${email}`}</div>
@@ -16,7 +17,8 @@ export default Email;
       <a
         className="dropdown-toggle px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg active:text-white
           transition duration-150 ease-in-out flex items-center whitespace-nowrap"
-        href="#"
+        // eslint-disable-next-line   
+        href="!#"
         type="button"
         id="dropdownMenuButton2"
         data-bs-toggle="dropdown"
@@ -46,7 +48,8 @@ export default Email;
         <li>
           <a
             className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-            href="#"
+            // eslint-disable-next-line
+            href="!#"
           >
             Action
           </a>
