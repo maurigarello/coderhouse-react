@@ -32,7 +32,7 @@ const Navbar = () => {
               <Link to="/" className="cursor-pointer" href="#!">
                 <h3 className="text-2xl font-medium text-blue-500">
                   <img
-                    className="h-8 md:flex lg:flex lg:h-10 object-cover"
+                    className="h-8 md:flex lg:flex lg:h-10 object-cover hover:shadow-md"
                     href="#!"
                     alt="LOGO"
                     src={logo}
@@ -44,16 +44,16 @@ const Navbar = () => {
             <div className="items-center hidden space-x-8 lg:flex">
               <Link
                 to="/category/electro"
-                className="flex border border-black px-2 py-2 text-xl italic hover:text-black text-gray-600
-                  cursor-pointer transition-colors duration-300"
+                className="flex border-[2px] border-gray-500 px-2 py-1 text-xl italic hover:text-black text-gray-600
+                  cursor-pointer transition-colors duration-300 hover:shadow-md"
                 href="#!"
               >
                 ELECTRO
               </Link>
               <Link
                 to="/category/muebles"
-                className="flex border border-black px-2 py-2 text-xl italic hover:text-black text-gray-600
-                  cursor-pointer transition-colors duration-300"
+                className="flex border-[2px] border-gray-500 px-2 py-1 text-xl italic hover:text-black text-gray-600
+                  cursor-pointer transition-colors duration-300 hover:shadow-md"
                 href="#!"
               >
                 MUEBLES
