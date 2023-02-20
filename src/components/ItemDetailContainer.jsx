@@ -7,8 +7,8 @@ import { ProductsContext } from "../context/ProductsContext";
 const ItemDetailContainer = () => {
   const { products, getProducts } = useContext(ProductsContext);
   const [isLoading, setIsLoading] = useState(true);
-  const { id } = useParams();
   const [item, setItem] = useState([]);
+  const { id } = useParams();
 
   // uso del useeffect para traer los productos desde la funcion exportada por context y luego filtrar por id, teniendo como dependencia el mismo //
   useEffect(() => {

@@ -1,22 +1,29 @@
+import { useEffect } from "react";
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ item }) => {
-  const { addToCart, cart, count } = useContext(CartContext);
+  const { addToCart, cart } = useContext(CartContext);
 
   const [quantity, setQuantity] = useState(1);
   const [hidden, setHidden] = useState(false);
+  const [monto, setMonto] = useState(0);
 
   const onAdd = (count) => {
-    setQuantity(count);
+    count < 1
+    ? setQuantity(1)
+    : setQuantity(count);
   };
 
   const handleAddToCart = () => {
-    onAdd(count);
     addToCart(item, quantity);
     setHidden(true);
   };
+
+  useEffect(() => {
+      setMonto(item.price*quantity);
+  }, [item.price, quantity]);
 
   return (
     <div className="">
@@ -37,7 +44,7 @@ const ItemDetail = ({ item }) => {
         <div className="flex">
           <span className="font-regular text-md text-gray-600 tracking-wide leading-normal mx-auto mt-2 bg-gray-200 px-2 py-1 border border-gray-300">
             Monto:
-            {(item.price * quantity).toLocaleString("es-ar", {
+            {(monto).toLocaleString("es-ar", {
               style: "currency",
               currency: "ARS",
               minimumFractionDigits: 2,
