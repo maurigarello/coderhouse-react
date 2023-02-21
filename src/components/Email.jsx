@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
@@ -6,6 +6,7 @@ const Email = () => {
   const { email } = useContext(AuthContext);
   // eslint-disable-next-line
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null); // Creamos una referencia al dropdown
 
   const handleMenuToggle = () => {
     setIsOpen(!isOpen);
@@ -15,8 +16,24 @@ const Email = () => {
     console.log("Sesión cerrada");
   };
 
+  const handleClickOutside = (event) => {
+    // Si el clic se realizó fuera del dropdown, cerramos el menú
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    // Agregamos el evento "click" al elemento "document"
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      // Removemos el evento cuando se desmonta el componente
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       <div className="flex font-thin my-auto text-sm md:text-lg cursor-pointer mr-4" onClick={handleMenuToggle}>
         {`${email}`}
       </div>
