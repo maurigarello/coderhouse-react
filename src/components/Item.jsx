@@ -9,12 +9,25 @@ const Item = ({ id, name, img, price }) => {
         </Link>
       </div>
       <div className="bg-no-repeat bg-center overflow-hidden mt-10 min-h-96">
-        <img className="mx-auto p-5" src={img} alt={`esta es una imagen del producto: `} />
+        <img
+          className="mx-auto p-5"
+          src={img}
+          alt={`esta es una imagen del producto: `}
+        />
       </div>
       <div className="p-8 mb-10 mt-2">
         <p className="text-xl text-gray-500"></p>
-        <h2 className="font-medium text-xl text-gray-800 tracking-wider leading-tight uppercase mt-2">{name}</h2>
-        <h2 className="text-gray-700 text-2xl mt-2 italic">Precio: ${price}</h2>
+        <h2 className="font-medium text-xl text-gray-800 tracking-wider leading-tight uppercase mt-2">
+          {name}
+        </h2>
+        <h2 className="text-gray-700 text-2xl mt-2 italic">
+          Precio:
+          {price.toLocaleString("es-ar", {
+            style: "currency",
+            currency: "ARS",
+            minimumFractionDigits: 0,
+          })}
+        </h2>
       </div>
     </div>
   );
