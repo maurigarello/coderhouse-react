@@ -13,10 +13,10 @@ import { AuthContextProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <ProductsContextProvider>
-      <CartContextProvider>
-        <AuthContextProvider>
-          <BrowserRouter>
+    <BrowserRouter>
+      <ProductsContextProvider>
+        <CartContextProvider>
+          <AuthContextProvider>
             <Navbar />
             <Routes>
               <Route path="/" element={<ItemListContainer />} />
@@ -30,10 +30,10 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             </Routes>
-          </BrowserRouter>
-        </AuthContextProvider>
-      </CartContextProvider>
-    </ProductsContextProvider>
+          </AuthContextProvider>
+        </CartContextProvider>
+      </ProductsContextProvider>
+    </BrowserRouter>
   );
 }
 

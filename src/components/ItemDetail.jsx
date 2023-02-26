@@ -6,9 +6,9 @@ import ItemCount from "./ItemCount";
 const ItemDetail = ({ item }) => {
   const { addToCart, cart } = useContext(CartContext);
 
-  const [quantity, setQuantity] = useState(1);
-  const [hidden, setHidden] = useState(false);
-  const [monto, setMonto] = useState(0);
+  const [ quantity, setQuantity ] = useState(1);
+  const [ hidden, setHidden ] = useState(false);
+  const [ monto, setMonto ] = useState(0);
 
   const onAdd = (count) => {
     count < 1

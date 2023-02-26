@@ -3,17 +3,13 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 const Email = () => {
-  const { email } = useContext(AuthContext);
+  const { email, handleLogout } = useContext(AuthContext);
   // eslint-disable-next-line
-  const [isOpen, setIsOpen] = useState(false);
+  const [ isOpen, setIsOpen ] = useState(false);
   const dropdownRef = useRef(null); // Creamos una referencia al dropdown
 
   const handleMenuToggle = () => {
     setIsOpen(!isOpen);
-  };
-
-  const handleLogout = () => {
-    console.log("Sesión cerrada");
   };
 
   const handleClickOutside = (event) => {

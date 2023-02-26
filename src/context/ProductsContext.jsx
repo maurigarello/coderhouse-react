@@ -5,8 +5,8 @@ import { db } from "../firebaseconfig";
 export const ProductsContext = createContext([]);
 
 export const ProductsContextProvider = ({ children }) => {
-  const [products, setProducts] = useState([]);
-  const [cachedData, setCachedData] = useState({});
+  const [ products, setProducts ] = useState([]);
+  const [ cachedData, setCachedData ] = useState({});
 
   // funcion asincrona para traer productos desde firebase //
   const getProducts = async () => {

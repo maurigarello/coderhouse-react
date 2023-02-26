@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const ItemCount = ({ handleAddToCart, initial = 1, stock, onAdd, hidden }) => {
-  const [count, setCount] = useState(initial);
+  const [ count, setCount ] = useState(initial);
 
   const increment = () => {
     count < stock && setCount(count + 1);

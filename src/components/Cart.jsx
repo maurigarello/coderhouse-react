@@ -6,7 +6,7 @@ import { AiOutlineCloseSquare } from "react-icons/ai";
 const Cart = () => {
   const { cart, deleteItem, removeList, totalCartPrice, totalCart } =
     useContext(CartContext);
-  const [hover, setHover] = useState(false);
+  const [ hover, setHover ] = useState(false);
   const handlemouseEnter = () => setHover(true);
   const handlemouseLeave = () => setHover(false);
 

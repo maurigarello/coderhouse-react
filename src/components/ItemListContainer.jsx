@@ -7,8 +7,8 @@ import ItemList from "./ItemList";
 const ItemListContainer = () => {
   const { products, getCategoryProducts, cachedData } =
     useContext(ProductsContext);
-  const [isLoading, setIsLoading] = useState(true);
-  const [prevCategoryId, setPrevCategoryId] = useState(null);
+  const [ isLoading, setIsLoading ] = useState(true);
+  const [ prevCategoryId, setPrevCategoryId ] = useState(null);
   const { categoryId } = useParams();
 
   // uso de useeffect para traer los productos filtrados por categoria y tener como dependencia el categoryID //

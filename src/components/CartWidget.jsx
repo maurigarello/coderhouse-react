@@ -6,7 +6,7 @@ import { CartContext } from "../context/CartContext";
 const CartWidget = () => {
   const { totalCart, cart } = useContext(CartContext);
 
-  const [hover, setHover] = useState(false);
+  const [ hover, setHover ] = useState(false);
 
   // funciones para determinar si el mouse esta sobre el item o no //
   const handlemouseEnter = () => setHover(true);

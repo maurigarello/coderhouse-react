@@ -9,7 +9,7 @@ import { useContext } from "react";
 
 const Navbar = () => {
   const { registered } = useContext(AuthContext);
-  const [hover, setHover] = useState({
+  const [ hover, setHover ] = useState({
     register: false,
     login: false,
   });
@@ -59,7 +59,6 @@ const Navbar = () => {
                 MUEBLES
               </Link>
             </div>
-            {}
             {
               // eslint-disable-next-line
               registered == false ? (

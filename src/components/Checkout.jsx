@@ -13,9 +13,9 @@ const Checkout = () => {
   const { cart, removeList, totalCartPrice, totalCart } =
     useContext(CartContext);
 
-  const [idCompra, setIdCompra] = useState("");
-  const [showModal, setShowModal] = useState(false);
-  const [buyer, setBuyer] = useState({
+  const [ idCompra, setIdCompra ] = useState("");
+  const [ showModal, setShowModal ] = useState(false);
+  const [ buyer, setBuyer ] = useState({
     name: "",
     surname: "",
     telephone: "",
