@@ -6,7 +6,7 @@ import { AiOutlineCloseSquare } from "react-icons/ai";
 const Cart = () => {
   const { cart, deleteItem, removeList, totalCartPrice, totalCart } =
     useContext(CartContext);
-  const [ hover, setHover ] = useState(false);
+  const [hover, setHover] = useState(false);
   const handlemouseEnter = () => setHover(true);
   const handlemouseLeave = () => setHover(false);
 
@@ -67,13 +67,21 @@ const Cart = () => {
                       </div>
                     </th>
                     <th className="font-light text-gray-600 tracking-wide leading-normal">
-                      {item.price}
+                      {item.price.toLocaleString("es-ar", {
+                        style: "currency",
+                        currency: "ARS",
+                        minimumFractionDigits: 0,
+                      })}
                     </th>
                     <th className="font-light text-gray-600 tracking-wide leading-normal">
                       {item.cantidad}
                     </th>
                     <th className="font-light text-gray-600 tracking-wide leading-normal">
-                      {item.price * item.cantidad}
+                      {(item.price * item.cantidad).toLocaleString("es-ar", {
+                        style: "currency",
+                        currency: "ARS",
+                        minimumFractionDigits: 0,
+                      })}
                     </th>
                     <th className="md:px-56 lg:pl-2 xl:pl-24">
                       <button onClick={() => deleteItem(item.id)}>
