@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useContext, useState } from "react";
+import { toast } from "react-toastify";
 import { CartContext } from "../context/CartContext";
 import ItemCount from "./ItemCount";
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemDetail = ({ item }) => {
   const { addToCart, cart } = useContext(CartContext);
@@ -19,6 +21,16 @@ const ItemDetail = ({ item }) => {
   const handleAddToCart = () => {
     addToCart(item, quantity);
     setHidden(true);
+    toast('Item Agregado al Carrito!', {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
   };
 
   useEffect(() => {

@@ -16,7 +16,7 @@ const Cart = () => {
         <div className="flex min-h-screen -mb-48flex-col">
           <div className="m-auto mt-64">
             <p className="pl-4 font-medium text-xs md:text-xl text-gray-700 tracking-wider leading-loose uppercase">
-              Tu carrito está vacío. Por favor, agregá algún producto para poder
+              Tu carrito está vacío. Por favor, agrega algún producto para poder
               continuar.
             </p>
             <Link
