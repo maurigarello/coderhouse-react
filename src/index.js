@@ -8,6 +8,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <>
     <ToastContainer
+    className="font-semibold"
     position="top-right"
     autoClose={1000}
     hideProgressBar

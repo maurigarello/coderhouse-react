@@ -1,25 +1,51 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { auth } from "../firebaseconfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
+import { useEffect } from "react";
+import ModalRegister from "./ModalRegister";
 
 
 const Register = () => {
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
+  const { showModal, setShowModalFunc, showEmail } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const signUp = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
+        setShowModalFunc(true);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
+  useEffect(() => {
+    setShowModalFunc(true);
+    // eslint-disable-next-line
+  }, [showModal]);
+
+  const closeModal = () => {
+    setShowModalFunc(false);
+    autoClose();
+  };
+
+  const autoClose = () => {
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
+  };
+
   return (
+    // eslint-disable-next-line
+    showModal == false ? (
     <div className="relative flex flex-col justify-center overflow-hidden">
       <div className="w-full p-6 mt-12 mx-auto bg-white rounded-md shadow-lg border border-gray-100 lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-gray-800 tracking-wide leading-normal">
@@ -85,8 +111,15 @@ const Register = () => {
             Acceder
           </Link>
         </p>
-      </div>
     </div>
+      </div>
+   ) : (
+    <ModalRegister 
+    closemodal={closeModal}
+    autoclose={autoClose}
+    showemail={showEmail}
+    />
+   )
   );
 };
 export default Register;

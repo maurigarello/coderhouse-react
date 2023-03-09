@@ -22,7 +22,7 @@ const ItemDetail = ({ item }) => {
     addToCart(item, quantity);
     setHidden(true);
     toast('Item Agregado al Carrito!', {
-      position: "top-right",
+      position: "bottom-right",
       autoClose: 1000,
       hideProgressBar: true,
       closeOnClick: true,

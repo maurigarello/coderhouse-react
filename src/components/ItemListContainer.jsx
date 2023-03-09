@@ -29,6 +29,7 @@ const ItemListContainer = () => {
     // eslint-disable-next-line
   }, [categoryId, products, cachedData]);
 
+  
   return (
     <div className="container mx-auto p-10 md:py-20 px-0 md:p-10 md:px-0">
       {isLoading ? (

@@ -4,11 +4,8 @@ import Email from "./Email";
 import { Link } from "react-router-dom";
 import { AiOutlineUserAdd, AiOutlineLogin } from "react-icons/ai";
 import { useState } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { useContext } from "react";
 
 const Navbar = () => {
-  const { registered } = useContext(AuthContext);
   const [ hover, setHover ] = useState({
     register: false,
     login: false,
@@ -21,7 +18,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center mt-32">
+      <div className="flex flex-col items-center justify-center mt-16">
         <div className="flex flex-col">
           <nav
             className="flex justify-around py-4 bg-white/80
@@ -61,7 +58,7 @@ const Navbar = () => {
             </div>
             {
               // eslint-disable-next-line
-              registered == false ? (
+              !localStorage.getItem("user") ? (
                 <div className="flex items-center space-x-5">
                   <div>
                     <Link to="/register">

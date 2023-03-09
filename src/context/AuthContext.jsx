@@ -22,14 +22,13 @@ export const AuthContextProvider = ({ children }) => {
         // Obtiene el correo electrónico del usuario y lo establece en la variable "email"
         setEmail(user.email);
         // Guarda la información del usuario en SessionStorage
-        sessionStorage.setItem("user", JSON.stringify(user));
-      } else {
-        // Si el usuario no está autenticado, establece la variable "registered" en false
-        setRegistered(false);
-        // Borra la información del usuario de SessionStorage
-        sessionStorage.removeItem("user");
+        localStorage.setItem("user", JSON.stringify(user));
       }
     });
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      setEmail(user.email);
+    }
   }, []);
 
   const setShowModalFunc = (value) => {
@@ -39,7 +38,7 @@ export const AuthContextProvider = ({ children }) => {
   const handleLogout = () => {
     auth.signOut()
       .then(() => {
-        sessionStorage.removeItem("user");
+        localStorage.removeItem("user");
         setRegistered(false);
         navigate("/");
       })

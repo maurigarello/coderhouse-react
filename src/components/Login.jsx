@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseconfig";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import React, { useEffect, useState } from "react";
 import Modal from "./Modal";
 
 const Login = () => {
-  const [password, setPassword] = useState("");
-  const [showEmail, setShowEmail] = useState("");
+  const [ password, setPassword ] = useState("");
+  const [ showEmail, setShowEmail ] = useState("");
   const { registered, setShowModalFunc, showModal } = useContext(AuthContext);
 
   const navigate = useNavigate();
