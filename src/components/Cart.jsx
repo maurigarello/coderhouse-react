@@ -29,7 +29,7 @@ const Cart = () => {
         </div>
       ) : (
         <div className="mx-6">
-          <div className="flex flex-col justify-between mt-2 w-full lg:max-w-7xl xl:m-auto">
+          <div className="flex flex-col justify-between mt-6 w-full lg:max-w-7xl xl:m-auto">
             <h1 className="font-medium text-lg text-gray-800 tracking-wider leading-tight uppercase self-center mb-6">
               Carrito
             </h1>
