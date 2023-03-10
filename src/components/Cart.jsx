@@ -28,7 +28,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div className="mx-6">
+        <div className="mx-6 mt-14">
           <div className="flex flex-col justify-between w-full lg:max-w-7xl xl:m-auto">
             <h1 className="font-medium text-lg text-gray-800 tracking-wider leading-tight uppercase self-center mb-6">
               Carrito

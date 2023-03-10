@@ -50,7 +50,7 @@ const Checkout = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center mx-auto xl:max-w-7xl xl:mx-auto">
+      <div className="flex justify-center mt-14 items-center mx-auto xl:max-w-7xl xl:mx-auto">
         <div className="flex w-full flex-col justify-center items-center">
           <h1 className="font-medium text-lg text-gray-800 tracking-wider leading-tight uppercase self-start mb-6">
             Checkout
