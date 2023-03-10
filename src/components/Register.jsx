@@ -28,7 +28,7 @@ const Register = () => {
   };
 
   useEffect(() => {
-    setShowModalFunc(true);
+    setShowModalFunc(false);
     // eslint-disable-next-line
   }, [showModal]);
 
