@@ -1,13 +1,3 @@
-![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/01.png)
-
-![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/2.png)
-
-![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/3.png)
-
-![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/4.png)
-
-------------------------------------------------------[ ENGLISH ]---------------------------------------------------------------
-
 # Coderhouse REACT JS
 
 # MauriMart - Ecommerce.
@@ -26,3 +16,11 @@ In it, I faced the challenge of building a fully functional and user-friendly e-
 
 [[VIEW CODE]](https://github.com/maurigarello/coderhouse-react)
 [[LIVE DEMO]](https://maurimart.netlify.app//)
+
+![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/01.png)
+
+![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/2.png)
+
+![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/3.png)
+
+![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/4.png)
