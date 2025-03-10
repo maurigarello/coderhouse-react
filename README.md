@@ -1,22 +1,3 @@
-# Coderhouse REACT JS
-
-# MauriMart  - Ecommerce.
-
-Hola! Mi nombre es Mauricio Garello y este es mi proyecto final para el curso de React JS en CODERHOUSE.
-
-En este repositorio, comparto todos los elementos que componen a mi proyecto, el cual fue una simulación de un ecommerce con carrito, y orden de compra emitida mediante firebase.
-
-El mismo consta de:
-
-> * Maquetado de la aplicación utilizando HTML5, CSS3 y Tailwind CSS.
-> * Storage en la nube, utilizando firebase.
-> * Lógicas implementadas utilizando States, Hooks, UseEffect, Promises, Async & Await.
-
-En el mismo, me enfrente con el reto de construir desde cero un ecommerce totalmente funcional y agradable al usuario.
-
-[[VER CÓDIGO]](https://github.com/maurigarello/coderhouse-react)
-[[LIVE DEMO]](https://maurimart.netlify.app//)
-
 ![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/01.png)
 
 ![Image text](https://github.com/maurigarello/coderhouse-react/blob/main/2.png)
