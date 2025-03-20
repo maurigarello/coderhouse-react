@@ -12,6 +12,13 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
     <title>MauriMart</title>
+        <script>
+var initGorgiasChatPromise = (window.GorgiasChat) ? window.GorgiasChat.init() : new Promise(function (resolve) { window.addEventListener('gorgias-widget-loaded', function () { resolve();})});
+
+initGorgiasChatPromise.then(function() {
+    GorgiasChat.sendMessage('the message')
+})
+</script>
   </head>
   <body>
     
@@ -20,14 +27,6 @@
     src="https://config.gorgias.chat/bundle-loader/01JP0GA2TREFS4WPP7W4R20VC5">
 </script>
 <!--Gorgias Chat Widget End-->
-
-    <script>
-var initGorgiasChatPromise = (window.GorgiasChat) ? window.GorgiasChat.init() : new Promise(function (resolve) { window.addEventListener('gorgias-widget-loaded', function () { resolve();})});
-
-initGorgiasChatPromise.then(function() {
-    GorgiasChat.sendMessage('the message')
-})
-</script>
 
 <!--Bundle Start-->
 <script src="https://bundle.dyn-rev.app/loader.js?g_cvt_id=7db25a73-df8b-485e-a91a-81609afe3309" async></script>
