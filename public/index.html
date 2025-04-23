@@ -14,42 +14,9 @@
     <title>MauriMart</title>
     <script>
 var initGorgiasChatPromise = (window.GorgiasChat) ? window.GorgiasChat.init() : new Promise(function (resolve) { window.addEventListener('gorgias-widget-loaded', function () { resolve();})});
-
-initGorgiasChatPromise.then(function () { 
-    var timer = setInterval(function () { 
-        var chatButtonHead = document.querySelector('#gorgias-chat-container')?.querySelector('#chat-button')?.contentWindow.document.querySelector('head'); 
-        if (!chatButtonHead?.children.length) { 
-            return; 
-        } 
-        clearInterval(timer); 
-
-        var chatButtonIframe = document.querySelector('#chat-button'); 
-        chatButtonIframe.style = "display:none;" 
-        var myButton = document.createElement('button');
-        myButton.style = ` 
-            position: fixed; 
-            right: 100px; bottom: 10px; 
-            z-index: 2147483000; 
-            width: 50px; 
-            height: 50px; 
-            border-radius: 10px; 
-            background-color: blue;
-            ` 
-
-        // onClick, behave like a chat opener 
-        myButton.onclick = function () { 
-            if (GorgiasChat.isOpen()) { 
-                GorgiasChat.close(); 
-            } else { 
-                GorgiasChat.open(); 
-            } 
-        } 
-        document.body.appendChild(myButton); 
-    }, 50); 
-});
-</script>
   </head>
   <body>
+    </script>
     
 <!--Gorgias Chat Widget Start-->
 <script id="gorgias-chat-widget-install-v3" 
