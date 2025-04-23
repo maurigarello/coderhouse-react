@@ -12,7 +12,7 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
     <title>MauriMart</title>
-    <script>
+   <script>
     (async function() {
   if (!window.GorgiasChat) {
         await new Promise(resolve =>
@@ -84,14 +84,16 @@
     'display': 'inline-flex',
     'WebkitBoxAlign': 'center',
     'alignItems': 'center',
-    'position': 'relative',
+    'position': 'fixed',
     'background': '#ebebeb',
     'border': '3px solid transparent',
     'borderRadius': '100px',
     'boxShadow': 'rgba(22, 22, 22, 0.16) 0px 2px 4px',
     'height': '60px',
     'margin': '7px 10px',
-    'padding': '16px 20px'
+    'padding': '16px 20px',
+    'bottom': '0',
+    'right': '0'
     });
 
     // Toggle open/close
