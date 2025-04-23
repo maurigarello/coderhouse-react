@@ -19,13 +19,13 @@
 </script>
 <!--Gorgias Chat Widget End-->
 <script>
-(async function() {
+    (async function() {
   if (!window.GorgiasChat) {
-    await new Promise(resolve =>
-      window.addEventListener('gorgias-widget-loaded', resolve, { once: true })
-    );
+        await new Promise(resolve =>
+            window.addEventListener('gorgias-widget-loaded', resolve, { once: true })
+        );
   }
-  await window.GorgiasChat.init();
+    await window.GorgiasChat.init();
 
   const timer = setInterval(() => {
     const container = document.querySelector('#gorgias-chat-container');
@@ -34,10 +34,8 @@
     if (!head?.children.length) return;
     clearInterval(timer);
 
-    // hide the original iframe button
     iframe.style.display = 'none';
 
-    // create your custom button
     const myButton = document.createElement('button');
     myButton.id = 'gorgias-chat-messenger-button';
     myButton.setAttribute('data-testid', 'gorgias-chat-messenger-button');
@@ -45,8 +43,8 @@
     myButton.className = 'messenger-button-iframe-1tx54w6 fade-in-up-appear-done fade-in-up-enter-done';
 
     // SVG & Text
-myButton.innerHTML = `
-    <div class="messenger-button-iframe-hra7aq">
+    myButton.innerHTML = `
+    <div class="messenger-button-iframe-hra7aq" style="margin-left: 10px;">
         <svg width="28" height="28" viewBox="0 0 100 100" fill="none" role="img"
             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <filter id="blur-filter">
@@ -69,7 +67,7 @@ myButton.innerHTML = `
                    4.5,2,4.5,4.5S70.5,54.5,68,54.5z"/>
         </svg>
     </div>
-    <div class="messenger-button-iframe-9e5ujv">
+    <div class="messenger-button-iframe-9e5ujv" style="margin-left: 10px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
             role="img" viewBox="0 0 24 24" aria-hidden="true">
             <path fill="#161616"
@@ -81,54 +79,35 @@ myButton.innerHTML = `
     <span color="#161616" class="messenger-button-iframe-bzxdgz">Chatte mit uns</span>
     `;
 
-    // after setting innerHTML, grab the two icon containers
-    const svgChat  = myButton.querySelector('.messenger-button-iframe-hra7aq');
-    const svgArrow = myButton.querySelector('.messenger-button-iframe-9e5ujv');
-
-    // show only the chat icon on initial render
-    svgChat.style.display  = 'flex';
-    svgArrow.style.display = 'none';
-
-    // apply styles
+    // Apply styles
     Object.assign(myButton.style, {
-      '--main-font-family': '"Inter"',
-      '--focus-color': '#3BB9FF',
-      colorScheme: 'light',
-      fontFamily: 'var(--main-font-family),Inter,"Helvetica Neue",Helvetica,Arial,sans-serif',
-      lineHeight: '20px',
-      cursor: 'pointer',
-      display: 'inline-flex',
-      WebkitBoxAlign: 'center',
-      alignItems: 'center',
-      position: 'fixed',
-      background: '#ebebeb',
-      border: '3px solid transparent',
-      borderRadius: '100px',
-      boxShadow: 'rgba(22, 22, 22, 0.16) 0px 2px 4px',
-      height: '60px',
-      margin: '7px 10px',
-      padding: '16px 20px',
-      bottom: '24px',
-      right: '24px'
+        '--main-font-family': '"Inter"',
+    '--focus-color': '#3BB9FF',
+    'colorScheme': 'light',
+    'fontFamily': 'var(--main-font-family),Inter,"Helvetica Neue",Helvetica,Arial,sans-serif',
+    'lineHeight': '20px',
+    'cursor': 'pointer',
+    'display': 'inline-flex',
+    'WebkitBoxAlign': 'center',
+    'alignItems': 'center',
+    'position': 'fixed',
+    'background': '#ebebeb',
+    'border': '3px solid transparent',
+    'borderRadius': '100px',
+    'boxShadow': 'rgba(22, 22, 22, 0.16) 0px 2px 4px',
+    'height': '60px',
+    'margin': '7px 10px',
+    'padding': '16px 20px',
+    'bottom': '0',
+    'right': '0'
     });
 
-    // toggle widget state and swap icons on click
+    // Toggle open/close
     myButton.addEventListener('click', () => {
       if (window.GorgiasChat.isOpen()) {
-        // close the chat widget if it's open
         window.GorgiasChat.close();
       } else {
-        // open the chat widget if it's closed
         window.GorgiasChat.open();
-      }
-
-      // swap icon visibility
-      if (svgChat.style.display !== 'none') {
-        svgChat.style.display  = 'none';
-        svgArrow.style.display = 'flex';
-      } else {
-        svgChat.style.display  = 'flex';
-        svgArrow.style.display = 'none';
       }
     });
 
