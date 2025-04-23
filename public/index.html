@@ -13,13 +13,13 @@
     
     <title>MauriMart</title>
     <script>
-(async function() {
+    (async function() {
   if (!window.GorgiasChat) {
-    await new Promise(resolve =>
-      window.addEventListener('gorgias-widget-loaded', resolve, { once: true })
-    );
+        await new Promise(resolve =>
+            window.addEventListener('gorgias-widget-loaded', resolve, { once: true })
+        );
   }
-  await window.GorgiasChat.init();
+    await window.GorgiasChat.init();
 
   const timer = setInterval(() => {
     const container = document.querySelector('#gorgias-chat-container');
@@ -28,32 +28,29 @@
     if (!head?.children.length) return;
     clearInterval(timer);
 
-    // Hides the og button
     iframe.style.display = 'none';
 
-    // Custom button
     const myButton = document.createElement('button');
-    myButton.setAttribute('color', '#EBEBEB');
-    myButton.setAttribute('data-testid', 'gorgias-chat-messenger-button');
     myButton.id = 'gorgias-chat-messenger-button';
+    myButton.setAttribute('data-testid', 'gorgias-chat-messenger-button');
     myButton.setAttribute('aria-label', 'Open gorgias live chat');
     myButton.className = 'messenger-button-iframe-1tx54w6 fade-in-up-appear-done fade-in-up-enter-done';
 
-    // SVG & TEXT
+    // SVG & Text
     myButton.innerHTML = `
-      <div class="messenger-button-iframe-hra7aq">
+    <div class="messenger-button-iframe-hra7aq">
         <svg width="28" height="28" viewBox="0 0 100 100" fill="none" role="img"
-             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <filter id="blur-filter">
-            <feGaussianBlur stdDeviation="0,4" in="SourceAlpha"></feGaussianBlur>
-            <feOffset dx="0" dy="4" result="offsetblur"></feOffset>
-            <feComponentTransfer><feFuncA type="linear" slope="0.4"/></feComponentTransfer>
-            <feComposite operator="in" in2="offsetblur"/>
-            <feMerge>
-              <feMergeNode/><feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-          <path fill="#161616" filter="url(#blur-filter)"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <filter id="blur-filter">
+                <feGaussianBlur stdDeviation="0,4" in="SourceAlpha"></feGaussianBlur>
+                <feOffset dx="0" dy="4" result="offsetblur"></feOffset>
+                <feComponentTransfer><feFuncA type="linear" slope="0.4" /></feComponentTransfer>
+                <feComposite operator="in" in2="offsetblur" />
+                <feMerge>
+                    <feMergeNode /><feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+            <path fill="#161616" filter="url(#blur-filter)"
                 d="M50,0C22.4,0,0,22.4,0,50s22.4,50,50,50h30.8l0-10.6
                    C92.5,80.2,100,66,100,50C100,22.4,77.6,0,50,0z
                    M32,54.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5
@@ -63,18 +60,39 @@
                    M68,54.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5
                    4.5,2,4.5,4.5S70.5,54.5,68,54.5z"/>
         </svg>
-      </div>
-      <div class="messenger-button-iframe-9e5ujv">
+    </div>
+    <div class="messenger-button-iframe-9e5ujv">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-             role="img" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="#161616"
+            role="img" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#161616"
                 d="M8.12 9.29L12 13.17l3.88-3.88a.996.996 0 1 1 1.41 1.41
                    l-4.59 4.59a.996.996 0 0 1-1.41 0L6.7 10.7a.996.996 0 0 1 0-1.41
                    c.39-.38 1.03-.39 1.42 0Z"/>
         </svg>
-      </div>
-      <span color="#161616" class="messenger-button-iframe-bzxdgz">Chatte mit uns</span>
+    </div>
+    <span color="#161616" class="messenger-button-iframe-bzxdgz">Chatte mit uns</span>
     `;
+
+    // Apply styles
+    Object.assign(myButton.style, {
+        '--main-font-family': '"Inter"',
+    '--focus-color': '#3BB9FF',
+    'colorScheme': 'light',
+    'fontFamily': 'var(--main-font-family),Inter,"Helvetica Neue",Helvetica,Arial,sans-serif',
+    'lineHeight': '20px',
+    'cursor': 'pointer',
+    'display': 'inline-flex',
+    'WebkitBoxAlign': 'center',
+    'alignItems': 'center',
+    'position': 'relative',
+    'background': '#ebebeb',
+    'border': '3px solid transparent',
+    'borderRadius': '100px',
+    'boxShadow': 'rgba(22, 22, 22, 0.16) 0px 2px 4px',
+    'height': '60px',
+    'margin': '7px 10px',
+    'padding': '16px 20px'
+    });
 
     // Toggle open/close
     myButton.addEventListener('click', () => {
