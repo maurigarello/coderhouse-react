@@ -45,22 +45,40 @@
     myButton.className = 'messenger-button-iframe-1tx54w6 fade-in-up-appear-done fade-in-up-enter-done';
 
     // SVG & Text
-    myButton.innerHTML = `
-      <div class="messenger-button-iframe-hra7aq">
-        <!-- chat icon -->
+myButton.innerHTML = `
+    <div class="messenger-button-iframe-hra7aq">
         <svg width="28" height="28" viewBox="0 0 100 100" fill="none" role="img"
-             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <!-- ...filter & path... -->
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <filter id="blur-filter">
+                <feGaussianBlur stdDeviation="0,4" in="SourceAlpha"></feGaussianBlur>
+                <feOffset dx="0" dy="4" result="offsetblur"></feOffset>
+                <feComponentTransfer><feFuncA type="linear" slope="0.4" /></feComponentTransfer>
+                <feComposite operator="in" in2="offsetblur" />
+                <feMerge>
+                    <feMergeNode /><feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+            <path fill="#161616" filter="url(#blur-filter)"
+                d="M50,0C22.4,0,0,22.4,0,50s22.4,50,50,50h30.8l0-10.6
+                   C92.5,80.2,100,66,100,50C100,22.4,77.6,0,50,0z
+                   M32,54.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5
+                   4.5,2,4.5,4.5S34.5,54.5,32,54.5z
+                   M50,54.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5
+                   4.5,2,4.5,4.5S52.5,54.5,50,54.5z
+                   M68,54.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5
+                   4.5,2,4.5,4.5S70.5,54.5,68,54.5z"/>
         </svg>
-      </div>
-      <div class="messenger-button-iframe-9e5ujv">
-        <!-- arrow icon -->
+    </div>
+    <div class="messenger-button-iframe-9e5ujv">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-             role="img" viewBox="0 0 24 24" aria-hidden="true">
-          <!-- ...path... -->
+            role="img" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#161616"
+                d="M8.12 9.29L12 13.17l3.88-3.88a.996.996 0 1 1 1.41 1.41
+                   l-4.59 4.59a.996.996 0 0 1-1.41 0L6.7 10.7a.996.996 0 0 1 0-1.41
+                   c.39-.38 1.03-.39 1.42 0Z"/>
         </svg>
-      </div>
-      <span color="#161616" class="messenger-button-iframe-bzxdgz">Chatte mit uns</span>
+    </div>
+    <span color="#161616" class="messenger-button-iframe-bzxdgz">Chatte mit uns</span>
     `;
 
     // after setting innerHTML, grab the two icon containers
