@@ -16,128 +16,154 @@
     src="https://config.gorgias.chat/bundle-loader/01JP0GA2TREFS4WPP7W4R20VC5">
     </script>
   <!--Gorgias Chat Widget End-->
-
-  <script>
-    (async function () {
-      if (!window.GorgiasChat) {
-        // wait for the widget to load if it's not already available
-        await new Promise(resolve =>
-          window.addEventListener('gorgias-widget-loaded', resolve, { once: true })
-        );
-      }
-      // initialize the chat SDK
-      await window.GorgiasChat.init();
-
-      // WCAG: on open, swap out any <h1> for <span>
-      window.GorgiasChat.on('open', () => {
-        const root = document.querySelector('#gorgias-chat-container');
-        console.log(root);
-        if (!root) {
-          console.log("no existe el chat")
-          return;
-        } 
-        root.querySelectorAll('h1').forEach(h1 => {
-          const span = document.createElement('span');
-          span.className = h1.className;
-          span.textContent = h1.textContent;
-          h1.replaceWith(span);
-        });
-      });
-
-      const timer = setInterval(() => {
-        const container = document.querySelector('#gorgias-chat-container');
-        const iframe = container?.querySelector('#chat-button');
-        const head = iframe?.contentWindow?.document.querySelector('head');
-        if (!head?.children.length) return;
-        clearInterval(timer);
-
-        // hide the original iframe button
-        iframe.style.display = 'none';
-
-        // create our custom button
-        const myButton = document.createElement('button');
-        myButton.id = 'gorgias-chat-messenger-button';
-        myButton.setAttribute('data-testid', 'gorgias-chat-messenger-button');
-        myButton.setAttribute('aria-label', 'Open gorgias live chat');
-        myButton.className = 'messenger-button-iframe-1tx54w6 fade-in-up-appear-done fade-in-up-enter-done';
-
-        // insert SVG icons and label
-        myButton.innerHTML = `
-        <div class="messenger-button-iframe-hra7aq" style="margin-right: 10px;">
-          <!-- chat icon -->
-          <svg width="28" height="28" viewBox="0 0 100 100" fill="none" role="img"
-               xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- filter and path omitted for brevity -->
-          </svg>
-        </div>
-        <div class="messenger-button-iframe-9e5ujv" style="margin-right: 10px;">
-          <!-- dropdown arrow icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-               role="img" viewBox="0 0 24 24" aria-hidden="true">
-            <!-- path omitted for brevity -->
-          </svg>
-        </div>
-        <span color="#161616" class="messenger-button-iframe-bzxdgz">Chatte mit uns</span>
-      `;
-
-        // grab both icon containers
-        const svgChat = myButton.querySelector('.messenger-button-iframe-hra7aq');
-        const svgArrow = myButton.querySelector('.messenger-button-iframe-9e5ujv');
-
-        // show only the chat icon initially
-        svgChat.style.display = 'flex';
-        svgArrow.style.display = 'none';
-
-        // Apply styles to the button
-        Object.assign(myButton.style, {
-          '--main-font-family': '"Inter"',
-          '--focus-color': '#3BB9FF',
-          colorScheme: 'light',
-          fontFamily: 'var(--main-font-family),Inter,"Helvetica Neue",Helvetica,Arial,sans-serif',
-          lineHeight: '20px',
-          cursor: 'pointer',
-          display: 'inline-flex',
-          WebkitBoxAlign: 'center',
-          alignItems: 'center',
-          position: 'fixed',
-          background: '#ebebeb',
-          border: '3px solid transparent',
-          borderRadius: '100px',
-          boxShadow: 'rgba(22, 22, 22, 0.16) 0px 2px 4px',
-          height: '60px',
-          margin: '7px 10px',
-          padding: '16px 20px',
-          bottom: '24px',
-          right: '24px'
-        });
-
-        // toggle Chat widget state and swap icons on click
-        myButton.addEventListener('click', () => {
-          if (window.GorgiasChat.isOpen()) {
-            // close the chat widget if it's open
-            window.GorgiasChat.close();
-          } else {
-            // open the chat widget if it's closed
-            window.GorgiasChat.open();
-          }
-          // swap icon visibility
-          if (svgChat.style.display !== 'none') {
-            svgChat.style.display = 'none';
-            svgArrow.style.display = 'flex';
-          } else {
-            svgChat.style.display = 'flex';
-            svgArrow.style.display = 'none';
-          }
-        });
-
-        document.body.appendChild(myButton);
-      }, 50);
-    })();
-  </script>
-
-  <!--Bundle Start-->
+    <!--Bundle Start-->
   <script src="https://bundle.dyn-rev.app/loader.js?g_cvt_id=7db25a73-df8b-485e-a91a-81609afe3309" async></script>
   <!--Bundle End-->
+
+<script>
+(async function() {
+if (!window.GorgiasChat) {
+// wait for the widget to load if it's not already available
+await new Promise(resolve =>
+window.addEventListener('gorgias-widget-loaded', resolve, { once: true })
+);
+}
+// initialize the chat SDK
+await window.GorgiasChat.init();
+
+  console.log("linea 34");
+
+const timer = setInterval(() => {
+const container = document.querySelector('#gorgias-chat-container');
+const iframe = container?.querySelector('#chat-button');
+const head = iframe?.contentWindow?.document.querySelector('head');
+if (!head?.children.length) return;
+clearInterval(timer);
+
+// hide the original iframe button
+iframe.style.display = 'none';
+
+// create our custom button
+const myButton = document.createElement('button');
+myButton.id = 'gorgias-chat-messenger-button';
+myButton.setAttribute('data-testid', 'gorgias-chat-messenger-button');
+myButton.setAttribute('aria-label', 'Open gorgias live chat');
+myButton.className = 'messenger-button-iframe-1tx54w6 fade-in-up-appear-done fade-in-up-enter-done';
+
+// insert SVG icons and label
+myButton.innerHTML = `
+<div class="messenger-button-iframe-hra7aq" style="margin-right: 10px;">
+<svg width="28" height="28" viewBox="0 0 100 100" fill="none" role="img"
+xmlns="http://www.w3.org/2000/svg"; aria-hidden="true">
+<filter id="blur-filter">
+<feGaussianBlur stdDeviation="0,4" in="SourceAlpha"></feGaussianBlur>
+<feOffset dx="0" dy="4" result="offsetblur"></feOffset>
+<feComponentTransfer><feFuncA type="linear" slope="0.4" /></feComponentTransfer>
+<feComposite operator="in" in2="offsetblur" />
+<feMerge>
+<feMergeNode /><feMergeNode in="SourceGraphic" />
+</feMerge>
+</filter>
+<path fill="#161616" filter="url(#blur-filter)"
+d="M50,0C22.4,0,0,22.4,0,50s22.4,50,50,50h30.8l0-10.6
+C92.5,80.2,100,66,100,50C100,22.4,77.6,0,50,0z
+M32,54.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5
+4.5,2,4.5,4.5S34.5,54.5,32,54.5z
+M50,54.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5
+4.5,2,4.5,4.5S52.5,54.5,50,54.5z
+M68,54.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5
+4.5,2,4.5,4.5S70.5,54.5,68,54.5z"/>
+</svg>
+</div>
+<div class="messenger-button-iframe-9e5ujv" style="margin-right: 10px;">
+<svg xmlns="http://www.w3.org/2000/svg"; width="24" height="24" fill="none"
+role="img" viewBox="0 0 24 24" aria-hidden="true">
+<path fill="#161616"
+d="M8.12 9.29L12 13.17l3.88-3.88a.996.996 0 1 1 1.41 1.41
+l-4.59 4.59a.996.996 0 0 1-1.41 0L6.7 10.7a.996.996 0 0 1 0-1.41
+c.39-.38 1.03-.39 1.42 0Z"/>
+</svg>
+</div>
+<span color="#161616" class="messenger-button-iframe-bzxdgz">Chatte mit uns</span>
+`;
+
+// Apply styles
+Object.assign(myButton.style, {
+'--main-font-family': '"Inter"',
+'--focus-color': '#3BB9FF',
+'colorScheme': 'light',
+'fontFamily': 'var(--main-font-family),Inter,"Helvetica Neue",Helvetica,Arial,sans-serif',
+'lineHeight': '20px',
+'cursor': 'pointer',
+'display': 'inline-flex',
+'WebkitBoxAlign': 'center',
+'alignItems': 'center',
+'position': 'fixed',
+'background': '#ebebeb',
+'border': '3px solid transparent',
+'borderRadius': '100px',
+'boxShadow': 'rgba(22, 22, 22, 0.16) 0px 2px 4px',
+'height': '60px',
+'margin': '7px 10px',
+'padding': '16px 20px',
+'bottom': '0',
+'right': '0'
+});
+
+// grab both icon containers
+const svgChat = myButton.querySelector('.messenger-button-iframe-hra7aq');
+const svgArrow = myButton.querySelector('.messenger-button-iframe-9e5ujv');
+
+// show only the chat icon initially
+svgChat.style.display = 'flex';
+svgArrow.style.display = 'none';
+
+// apply styling to the button
+Object.assign(myButton.style, {
+'--main-font-family': '"Inter"',
+'--focus-color': '#3BB9FF',
+colorScheme: 'light',
+fontFamily: 'var(--main-font-family),Inter,"Helvetica Neue",Helvetica,Arial,sans-serif',
+lineHeight: '20px',
+cursor: 'pointer',
+display: 'inline-flex',
+WebkitBoxAlign: 'center',
+alignItems: 'center',
+position: 'fixed',
+background: '#ebebeb',
+border: '3px solid transparent',
+borderRadius: '100px',
+boxShadow: 'rgba(22, 22, 22, 0.16) 0px 2px 4px',
+height: '60px',
+margin: '7px 10px',
+padding: '16px 20px',
+bottom: '24px',
+right: '24px'
+});
+
+// toggle Chat widget state and swap icons on click
+myButton.addEventListener('click', () => {
+if (window.GorgiasChat.isOpen()) {
+// close the chat widget if it's open
+window.GorgiasChat.close();
+} else {
+// open the chat widget if it's closed
+window.GorgiasChat.open();
+}
+// swap icon visibility
+if (svgChat.style.display !== 'none') {
+svgChat.style.display = 'none';
+svgArrow.style.display = 'flex';
+} else {
+svgChat.style.display = 'flex';
+svgArrow.style.display = 'none';
+}
+});
+
+document.body.appendChild(myButton);
+}, 50);
+})();
+</script>
   <div id="root"></div>
   </body>
 
