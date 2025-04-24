@@ -33,10 +33,10 @@ await window.GorgiasChat.init();
 
   console.log("linea 34");
 
-      // WCAG: on open, swap out any <h1> for <span>
-    window.GorgiasChat.on('open', () => {
-      const root = document.querySelector('#gorgias-chat-container');
-      console.log(root);
+   // WCAG: when the widget actually opens, replace any <h1> with <span>
+    window.GorgiasChat.on('widget:opened', () => {
+      const root = document.querySelector('#gorgias-chat-container');+
+        console.log(root);
       if (!root) return;
       root.querySelectorAll('h1').forEach(h1 => {
         const span = document.createElement('span');
