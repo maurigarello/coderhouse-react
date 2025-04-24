@@ -29,14 +29,14 @@
     // initialize the chat SDK
     await window.GorgiasChat.init();
 
-    // replace any <h1> in the widget for WCAG compliance on open
+ // WCAG: on open, swap out any <h1> for <span>
     window.GorgiasChat.on('open', () => {
-      const widgetRoot = document.querySelector('#gorgias-chat-container');
-      if (!widgetRoot) return;
-      // find all H1s and replace with spans preserving classes
-      widgetRoot.querySelectorAll('h1').forEach(h1 => {
+      const root = document.querySelector('#gorgias-chat-container');
+      console.log(root);
+      if (!root) return;
+      root.querySelectorAll('h1').forEach(h1 => {
         const span = document.createElement('span');
-        span.className = h1.className;
+        span.className   = h1.className;
         span.textContent = h1.textContent;
         h1.replaceWith(span);
       });
