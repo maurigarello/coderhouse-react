@@ -36,7 +36,7 @@ await window.GorgiasChat.init();
 window.GorgiasChat.on('widget:opened', () => {
   const root = document.querySelector('#gorgias-chat-container');
   console.log(root);
-  const firstIframe = root.querySelector('iframe');
+  const firstIframe = root.querySelector('iframe#chat-window');
   console.log(firstIframe);
   const iframeDoc = firstIframe.contentDocument || firstIframe.contentWindow.document;
   console.log(iframeDoc);
