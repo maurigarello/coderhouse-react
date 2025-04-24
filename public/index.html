@@ -33,18 +33,17 @@ await window.GorgiasChat.init();
 
   console.log("linea 34");
 
-   // WCAG: when the widget actually opens, replace any <h1> with <span>
-    window.GorgiasChat.on('widget:opened', () => {
-      const root = document.querySelector('#gorgias-chat-container');+
-        console.log(root);
-      if (!root) return;
-      root.querySelectorAll('h1').forEach(h1 => {
-        const span = document.createElement('span');
-        span.className   = h1.className;
-        span.textContent = h1.textContent;
-        h1.replaceWith(span);
-      });
-    });
+window.GorgiasChat.on('widget:opened', () => {
+  const root = document.querySelector('#gorgias-chat-container');
+  const firstIframe = root.querySelector('iframe');
+  const iframeDoc = firstIframe.contentDocument || firstIframe.contentWindow.document;
+  iframeDoc.querySelectorAll('h1').forEach(h1 => {
+    const span = document.createElement('span');
+    span.className   = h1.className;
+    span.textContent = h1.textContent;
+    h1.replaceWith(span);
+  });
+});
 
 const timer = setInterval(() => {
 const container = document.querySelector('#gorgias-chat-container');
