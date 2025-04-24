@@ -18,6 +18,17 @@
     src="https://config.gorgias.chat/bundle-loader/01JP0GA2TREFS4WPP7W4R20VC5">
 </script>
 <!--Gorgias Chat Widget End-->
+<!--Gorgias Subdomain-->
+    <script>
+  window.gorgiasChatConfiguration = window.gorgiasChatConfiguration || {};
+  window.gorgiasChatConfiguration.application = {
+    config: {
+      shopName: 'your-shop-subdomain'  /* ← replace with your real subdomain */
+    }
+  };
+</script>
+    <!--Gorgias Subdomain End -->
+    
 <script>
   (async function() {
     if (!window.GorgiasChat) {
