@@ -32,7 +32,10 @@
       window.GorgiasChat.on('open', () => {
         const root = document.querySelector('#gorgias-chat-container');
         console.log(root);
-        if (!root) return;
+        if (!root) {
+          console.log("no existe el chat")
+          return;
+        } 
         root.querySelectorAll('h1').forEach(h1 => {
           const span = document.createElement('span');
           span.className = h1.className;
