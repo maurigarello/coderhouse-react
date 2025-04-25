@@ -43,10 +43,7 @@
       const chatTitle = doc.querySelector('#chat-title');
       console.log(chatTitle);
       if (chatTitle) {
-      const span = document.createElement('span');
-      span.className = chatTitle.className;
-      span.textContent = chatTitle.textContent;
-      chatTitle.replaceWith(span);
+      chatTitle.outerHTML = `<span class="${chatTitle.className}">${chatTitle.innerHTML}</span>`;
       }
     }, 200);  
   });
