@@ -40,7 +40,9 @@ window.GorgiasChat.on('widget:opened', () => {
   const mo = new MutationObserver((_, obs) => {
     console.log("disponible");
     const iframe = root.querySelector('iframe#chat-window');
+    console.log(iframe);
     const doc = iframe?.contentDocument || iframe?.contentWindow?.document;
+    console.log(doc);
     if (doc) {
       obs.disconnect();
       doc.querySelectorAll('h1').forEach(h1 => {
