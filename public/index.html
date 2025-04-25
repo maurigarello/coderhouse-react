@@ -33,14 +33,17 @@ await window.GorgiasChat.init();
 
 window.GorgiasChat.on('widget:opened', () => {
   const root = document.querySelector('#gorgias-chat-container');
+  console.log(root);
   if (!root) return;
 
-  // as soon as the #chat-window iframe appears and is loaded, swap out any <h1>
+  // Observe when the #chat-window iframe (y su documento) estén disponibles
   const mo = new MutationObserver((_, obs) => {
+    console.log("disponible");
     const iframe = root.querySelector('iframe#chat-window');
-    if (iframe?.contentDocument) {
+    const doc = iframe?.contentDocument || iframe?.contentWindow?.document;
+    if (doc) {
       obs.disconnect();
-      iframe.contentDocument.querySelectorAll('h1').forEach(h1 => {
+      doc.querySelectorAll('h1').forEach(h1 => {
         const span = document.createElement('span');
         span.className   = h1.className;
         span.textContent = h1.textContent;
