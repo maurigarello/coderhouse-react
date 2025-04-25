@@ -16,84 +16,59 @@
     src="https://config.gorgias.chat/bundle-loader/01JP0GA2TREFS4WPP7W4R20VC5">
     </script>
   <!--Gorgias Chat Widget End-->
-    <!--Bundle Start-->
+  <!--Bundle Start-->
   <script src="https://bundle.dyn-rev.app/loader.js?g_cvt_id=7db25a73-df8b-485e-a91a-81609afe3309" async></script>
   <!--Bundle End-->
 
-<script>
-(async function() {
-if (!window.GorgiasChat) {
-// wait for the widget to load if it's not already available
-await new Promise(resolve =>
-window.addEventListener('gorgias-widget-loaded', resolve, { once: true })
-);
-}
-// initialize the chat SDK
-await window.GorgiasChat.init();
-
-window.GorgiasChat.on('widget:opened', () => {
-  const root = document.querySelector('#gorgias-chat-container');
-  if (!root) return;
-
-  // observe for the chat-window iframe to be added
-  const mo = new MutationObserver((_, obs) => {
-    const iframe = root.querySelector('iframe#chat-window');
-    if (!iframe) return;
-
-    // stop observing once we have the iframe
-    obs.disconnect();
-
-    // helper to replace all H1s in a document
-    const replaceH1s = doc => {
-      doc.querySelectorAll('h1').forEach(h1 => {
-        const span = document.createElement('span');
-        span.className   = h1.className;
-        span.textContent = h1.textContent;
-        h1.replaceWith(span);
-      });
-    };
-
-    // if it’s already loaded, run immediately
-    try {
-      const doc = iframe.contentDocument;
-      if (doc.readyState === 'complete') {
-        return replaceH1s(doc);
+  <script>
+    (async function () {
+      if (!window.GorgiasChat) {
+        // wait for the widget to load if it's not already available
+        await new Promise(resolve =>
+          window.addEventListener('gorgias-widget-loaded', resolve, { once: true })
+        );
       }
-    } catch (e) {
-      // ignore cross-origin or not ready yet
-    }
+      // initialize the chat SDK
+      await window.GorgiasChat.init();
 
-    // otherwise wait for its load event
-    iframe.addEventListener('load', () => {
-      const doc = iframe.contentDocument || iframe.contentWindow.document;
-      console.log(doc);
-      replaceH1s(doc);
-    });
-  });
+      window.GorgiasChat.on('widget:opened', () => {
+        const root = document.querySelector('#gorgias-chat-container');
+        console.log(root);
+        setTimeout(() => {
+          const firstIframe = root.querySelector('iframe#chat-window');
+          console.log(firstIframe);
+          const iframeDoc = firstIframe.contentDocument || firstIframe.contentWindow.document;
+          console.log(iframeDoc);
+          iframeDoc.querySelectorAll('h1').forEach(h1 => {
+            const span = document.createElement('span');
+            span.className = h1.className;
+            span.textContent = h1.textContent;
+            h1.replaceWith(span);
+          });
+        }, 500);
 
-  mo.observe(root, { childList: true, subtree: true });
-});
+      });
 
-const timer = setInterval(() => {
-const container = document.querySelector('#gorgias-chat-container');
-const iframe = container?.querySelector('#chat-button');
-const head = iframe?.contentWindow?.document.querySelector('head');
-if (!head?.children.length) return;
-clearInterval(timer);
+      const timer = setInterval(() => {
+        const container = document.querySelector('#gorgias-chat-container');
+        const iframe = container?.querySelector('#chat-button');
+        const head = iframe?.contentWindow?.document.querySelector('head');
+        if (!head?.children.length) return;
+        clearInterval(timer);
 
-// hide the original iframe button
-iframe.style.display = 'none';
+        // hide the original iframe button
+        iframe.style.display = 'none';
 
-// create our custom button
-const myButton = document.createElement('button');
-myButton.id = 'gorgias-chat-messenger-button';
-myButton.setAttribute('data-testid', 'gorgias-chat-messenger-button');
-myButton.setAttribute('aria-label', 'Open gorgias live chat');
-myButton.className = 'messenger-button-iframe-1tx54w6 fade-in-up-appear-done fade-in-up-enter-done';
+        // create our custom button
+        const myButton = document.createElement('button');
+        myButton.id = 'gorgias-chat-messenger-button';
+        myButton.setAttribute('data-testid', 'gorgias-chat-messenger-button');
+        myButton.setAttribute('aria-label', 'Open gorgias live chat');
+        myButton.className = 'messenger-button-iframe-1tx54w6 fade-in-up-appear-done fade-in-up-enter-done';
 
-// insert SVG icons and label
-myButton.innerHTML = 
-`<div class="messenger-button-iframe-hra7aq" style="margin-right: 10px;">
+        // insert SVG icons and label
+        myButton.innerHTML =
+          `<div class="messenger-button-iframe-hra7aq" style="margin-right: 10px;">
 <svg width="28" height="28" viewBox="0 0 100 100" fill="none" role="img"
 xmlns="http://www.w3.org/2000/svg"; aria-hidden="true">
 <filter id="blur-filter">
@@ -128,83 +103,83 @@ c.39-.38 1.03-.39 1.42 0Z"/>
 <span color="#161616" class="messenger-button-iframe-bzxdgz">Chatte mit uns</span>
 `;
 
-// Apply styles
-Object.assign(myButton.style, {
-'--main-font-family': '"Inter"',
-'--focus-color': '#3BB9FF',
-'colorScheme': 'light',
-'fontFamily': 'var(--main-font-family),Inter,"Helvetica Neue",Helvetica,Arial,sans-serif',
-'lineHeight': '20px',
-'cursor': 'pointer',
-'display': 'inline-flex',
-'WebkitBoxAlign': 'center',
-'alignItems': 'center',
-'position': 'fixed',
-'background': '#ebebeb',
-'border': '3px solid transparent',
-'borderRadius': '100px',
-'boxShadow': 'rgba(22, 22, 22, 0.16) 0px 2px 4px',
-'height': '60px',
-'margin': '7px 10px',
-'padding': '16px 20px',
-'bottom': '0',
-'right': '0'
-});
+        // Apply styles
+        Object.assign(myButton.style, {
+          '--main-font-family': '"Inter"',
+          '--focus-color': '#3BB9FF',
+          'colorScheme': 'light',
+          'fontFamily': 'var(--main-font-family),Inter,"Helvetica Neue",Helvetica,Arial,sans-serif',
+          'lineHeight': '20px',
+          'cursor': 'pointer',
+          'display': 'inline-flex',
+          'WebkitBoxAlign': 'center',
+          'alignItems': 'center',
+          'position': 'fixed',
+          'background': '#ebebeb',
+          'border': '3px solid transparent',
+          'borderRadius': '100px',
+          'boxShadow': 'rgba(22, 22, 22, 0.16) 0px 2px 4px',
+          'height': '60px',
+          'margin': '7px 10px',
+          'padding': '16px 20px',
+          'bottom': '0',
+          'right': '0'
+        });
 
-// grab both icon containers
-const svgChat = myButton.querySelector('.messenger-button-iframe-hra7aq');
-const svgArrow = myButton.querySelector('.messenger-button-iframe-9e5ujv');
+        // grab both icon containers
+        const svgChat = myButton.querySelector('.messenger-button-iframe-hra7aq');
+        const svgArrow = myButton.querySelector('.messenger-button-iframe-9e5ujv');
 
-// show only the chat icon initially
-svgChat.style.display = 'flex';
-svgArrow.style.display = 'none';
+        // show only the chat icon initially
+        svgChat.style.display = 'flex';
+        svgArrow.style.display = 'none';
 
-// apply styling to the button
-Object.assign(myButton.style, {
-'--main-font-family': '"Inter"',
-'--focus-color': '#3BB9FF',
-colorScheme: 'light',
-fontFamily: 'var(--main-font-family),Inter,"Helvetica Neue",Helvetica,Arial,sans-serif',
-lineHeight: '20px',
-cursor: 'pointer',
-display: 'inline-flex',
-WebkitBoxAlign: 'center',
-alignItems: 'center',
-position: 'fixed',
-background: '#ebebeb',
-border: '3px solid transparent',
-borderRadius: '100px',
-boxShadow: 'rgba(22, 22, 22, 0.16) 0px 2px 4px',
-height: '60px',
-margin: '7px 10px',
-padding: '16px 20px',
-bottom: '24px',
-right: '24px'
-});
+        // apply styling to the button
+        Object.assign(myButton.style, {
+          '--main-font-family': '"Inter"',
+          '--focus-color': '#3BB9FF',
+          colorScheme: 'light',
+          fontFamily: 'var(--main-font-family),Inter,"Helvetica Neue",Helvetica,Arial,sans-serif',
+          lineHeight: '20px',
+          cursor: 'pointer',
+          display: 'inline-flex',
+          WebkitBoxAlign: 'center',
+          alignItems: 'center',
+          position: 'fixed',
+          background: '#ebebeb',
+          border: '3px solid transparent',
+          borderRadius: '100px',
+          boxShadow: 'rgba(22, 22, 22, 0.16) 0px 2px 4px',
+          height: '60px',
+          margin: '7px 10px',
+          padding: '16px 20px',
+          bottom: '24px',
+          right: '24px'
+        });
 
-// toggle Chat widget state and swap icons on click
-myButton.addEventListener('click', () => {
-if (window.GorgiasChat.isOpen()) {
-// close the chat widget if it's open
-window.GorgiasChat.close();
-} else {
-// open the chat widget if it's closed
-window.GorgiasChat.open();
-}
-// swap icon visibility
-if (svgChat.style.display !== 'none') {
-svgChat.style.display = 'none';
-svgArrow.style.display = 'flex';
-} else {
-svgChat.style.display = 'flex';
-svgArrow.style.display = 'none';
-}
-});
+        // toggle Chat widget state and swap icons on click
+        myButton.addEventListener('click', () => {
+          if (window.GorgiasChat.isOpen()) {
+            // close the chat widget if it's open
+            window.GorgiasChat.close();
+          } else {
+            // open the chat widget if it's closed
+            window.GorgiasChat.open();
+          }
+          // swap icon visibility
+          if (svgChat.style.display !== 'none') {
+            svgChat.style.display = 'none';
+            svgArrow.style.display = 'flex';
+          } else {
+            svgChat.style.display = 'flex';
+            svgArrow.style.display = 'none';
+          }
+        });
 
-document.body.appendChild(myButton);
-}, 50);
-})();
-</script>
+        document.body.appendChild(myButton);
+      }, 50);
+    })();
+  </script>
 
   <div id="root"></div>
   </body>
