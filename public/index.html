@@ -33,36 +33,45 @@ await window.GorgiasChat.init();
 
 window.GorgiasChat.on('widget:opened', () => {
   const root = document.querySelector('#gorgias-chat-container');
-  const chatIframe = root.querySelector('iframe#chat-window');
-  if (!chatIframe) return;
+  if (!root) return;
 
-  // Helper: cuando el documento del iframe esté listo, corre el callback
-  const whenReady = (iframe, cb) => {
+  // observe for the chat-window iframe to be added
+  const mo = new MutationObserver((_, obs) => {
+    const iframe = root.querySelector('iframe#chat-window');
+    if (!iframe) return;
+
+    // stop observing once we have the iframe
+    obs.disconnect();
+
+    // helper to replace all H1s in a document
+    const replaceH1s = doc => {
+      doc.querySelectorAll('h1').forEach(h1 => {
+        const span = document.createElement('span');
+        span.className   = h1.className;
+        span.textContent = h1.textContent;
+        h1.replaceWith(span);
+      });
+    };
+
+    // if it’s already loaded, run immediately
     try {
       const doc = iframe.contentDocument;
-      console.log(doc);
       if (doc.readyState === 'complete') {
-        return cb(doc);
+        return replaceH1s(doc);
       }
     } catch (e) {
-      // cross-origin o no disponible aún
+      // ignore cross-origin or not ready yet
     }
-    // si no está listo, espera un poco y reintenta
-    setTimeout(() => whenReady(iframe, cb), 50);
-  };
 
-  // ata ambos: load + polling
-  chatIframe.addEventListener('load', () => whenReady(chatIframe, replaceH1s));
-  whenReady(chatIframe, replaceH1s);
-
-  function replaceH1s(doc) {
-    doc.querySelectorAll('h1').forEach(h1 => {
-      const span = document.createElement('span');
-      span.className   = h1.className;
-      span.textContent = h1.textContent;
-      h1.replaceWith(span);
+    // otherwise wait for its load event
+    iframe.addEventListener('load', () => {
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+      console.log(doc);
+      replaceH1s(doc);
     });
-  }
+  });
+
+  mo.observe(root, { childList: true, subtree: true });
 });
 
 const timer = setInterval(() => {
