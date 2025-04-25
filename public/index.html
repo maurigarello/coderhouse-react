@@ -35,55 +35,22 @@ window.GorgiasChat.on('widget:opened', () => {
   const root = document.querySelector('#gorgias-chat-container');
   if (!root) return;
 
-  // 1) Función para reemplazar <h1> → <span> dentro del documento del iframe
-  const replaceHeadings = (doc) => {
-    doc.querySelectorAll('h1').forEach(h1 => {
-      const span = document.createElement('span');
-      span.className   = h1.className;
-      span.textContent = h1.textContent;
-      h1.replaceWith(span);
-    });
-  };
-
-  // 2) Intenta obtener ya el iframe
-  let chatIframe = root.querySelector('iframe#chat-window');
-  if (chatIframe) {
-    // 2a) Si ya existe, escucha su evento load
-    chatIframe.addEventListener('load', () => {
-      try {
-        const doc = chatIframe.contentDocument || chatIframe.contentWindow.document;
-        replaceHeadings(doc);
-      } catch (e) {
-        console.warn('No se pudo acceder al contenido del iframe', e);
-      }
-    });
-    // 2b) Y si ya estaba cargado antes de añadir el listener:
-    if (chatIframe.contentWindow.document.readyState === 'complete') {
-      replaceHeadings(chatIframe.contentWindow.document);
-    }
-    return;
-  }
-
-  // 3) Si aún no existe, observa el DOM hasta que aparezca
-  const mo = new MutationObserver((mutations, observer) => {
-    chatIframe = root.querySelector('iframe#chat-window');
-    if (chatIframe) {
-      observer.disconnect();
-      // enganchamos load igual que antes
-      chatIframe.addEventListener('load', () => {
-        try {
-          const doc = chatIframe.contentDocument || chatIframe.contentWindow.document;
-          replaceHeadings(doc);
-        } catch (e) {
-          console.warn('No se pudo acceder al contenido del iframe', e);
-        }
+  // as soon as the #chat-window iframe appears and is loaded, swap out any <h1>
+  const mo = new MutationObserver((_, obs) => {
+    const iframe = root.querySelector('iframe#chat-window');
+    if (iframe?.contentDocument) {
+      obs.disconnect();
+      iframe.contentDocument.querySelectorAll('h1').forEach(h1 => {
+        const span = document.createElement('span');
+        span.className   = h1.className;
+        span.textContent = h1.textContent;
+        h1.replaceWith(span);
       });
     }
   });
 
   mo.observe(root, { childList: true, subtree: true });
 });
-
 
 const timer = setInterval(() => {
 const container = document.querySelector('#gorgias-chat-container');
