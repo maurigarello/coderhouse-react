@@ -42,13 +42,13 @@
       const doc = iframe.contentDocument || iframe.contentWindow.document;
       const chatTitle = doc.querySelector('#chat-title');
       console.log(chatTitle);
-      if (!chatTitle) return;
-
+      if (chatTitle) {
       const span = document.createElement('span');
-      span.className   = chatTitle.className;
+      span.className = chatTitle.className;
       span.textContent = chatTitle.textContent;
       chatTitle.replaceWith(span);
-    }, 200);  // tweak this delay as needed (200–300ms usually works)
+      }
+    }, 200);  
   });
 
       const timer = setInterval(() => {
