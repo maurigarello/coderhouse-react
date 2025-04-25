@@ -41,6 +41,7 @@
       if (!iframe) return;
       const doc = iframe.contentDocument || iframe.contentWindow.document;
       const chatTitle = doc.querySelector('#chat-title');
+      console.log(chatTitle);
       if (!chatTitle) return;
 
       const span = document.createElement('span');
