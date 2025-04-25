@@ -40,10 +40,10 @@
       const iframe = root.querySelector('iframe#chat-window');
       if (!iframe) return;
       const doc = iframe.contentDocument || iframe.contentWindow.document;
-      const chatTitle = doc.querySelector('#chat-title');
-      console.log(chatTitle);
-      if (chatTitle) {
-      chatTitle.outerHTML = `<span class="${chatTitle.className}">${chatTitle.innerHTML}</span>`;
+      if (doc) {
+        doc.querySelectorAll('h1').forEach(h1 => {
+  h1.outerHTML = `<span class="${h1.className}">${h1.innerHTML}</span>`;
+});
       }
     }, 3000);  
   });
