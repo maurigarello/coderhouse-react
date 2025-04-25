@@ -33,28 +33,36 @@ await window.GorgiasChat.init();
 
 window.GorgiasChat.on('widget:opened', () => {
   const root = document.querySelector('#gorgias-chat-container');
-  console.log(root);
-  if (!root) return;
+  const chatIframe = root.querySelector('iframe#chat-window');
+  if (!chatIframe) return;
 
-  // Observe when the #chat-window iframe (y su documento) estén disponibles
-  const mo = new MutationObserver((_, obs) => {
-    console.log("disponible");
-    const iframe = root.querySelector('iframe#chat-window');
-    console.log(iframe);
-    const doc = iframe?.contentDocument || iframe?.contentWindow?.document;
-    console.log(doc);
-    if (doc) {
-      obs.disconnect();
-      doc.querySelectorAll('h1').forEach(h1 => {
-        const span = document.createElement('span');
-        span.className   = h1.className;
-        span.textContent = h1.textContent;
-        h1.replaceWith(span);
-      });
+  // Helper: cuando el documento del iframe esté listo, corre el callback
+  const whenReady = (iframe, cb) => {
+    try {
+      const doc = iframe.contentDocument;
+      console.log(doc);
+      if (doc.readyState === 'complete') {
+        return cb(doc);
+      }
+    } catch (e) {
+      // cross-origin o no disponible aún
     }
-  });
+    // si no está listo, espera un poco y reintenta
+    setTimeout(() => whenReady(iframe, cb), 50);
+  };
 
-  mo.observe(root, { childList: true, subtree: true });
+  // ata ambos: load + polling
+  chatIframe.addEventListener('load', () => whenReady(chatIframe, replaceH1s));
+  whenReady(chatIframe, replaceH1s);
+
+  function replaceH1s(doc) {
+    doc.querySelectorAll('h1').forEach(h1 => {
+      const span = document.createElement('span');
+      span.className   = h1.className;
+      span.textContent = h1.textContent;
+      h1.replaceWith(span);
+    });
+  }
 });
 
 const timer = setInterval(() => {
