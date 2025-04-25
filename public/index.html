@@ -21,33 +21,34 @@
   <!--Bundle End-->
 
   <script>
-    (async function () {
-      if (!window.GorgiasChat) {
-        // wait for the widget to load if it's not already available
-        await new Promise(resolve =>
-          window.addEventListener('gorgias-widget-loaded', resolve, { once: true })
-        );
-      }
-      // initialize the chat SDK
-      await window.GorgiasChat.init();
+   (async function() {
+  if (!window.GorgiasChat) {
+    await new Promise(r =>
+      window.addEventListener('gorgias-widget-loaded', r, { once: true })
+    );
+  }
+  // 1) Initialize the Chat SDK
+  await window.GorgiasChat.init();
 
-      window.GorgiasChat.on('widget:opened', () => {
-        const root = document.querySelector('#gorgias-chat-container');
-        console.log(root);
-        setTimeout(() => {
-          const firstIframe = root.querySelector('iframe#chat-window');
-          console.log(firstIframe);
-          const iframeDoc = firstIframe.contentDocument || firstIframe.contentWindow.document;
-          console.log(iframeDoc);
-          const chatTitle = iframeDoc.querySelector('#chat-title');
-            if (chatTitle) {
-              const span = document.createElement('span');
-              span.className = chatTitle.className;
-              span.textContent = chatTitle.textContent;
-              chatTitle.replaceWith(span);
-          }
-        }, 2000);
-      });
+  // 2) On first open, wait a bit then replace the H1 inside chat-window
+  window.GorgiasChat.on('widget:opened', () => {
+    const root = document.querySelector('#gorgias-chat-container');
+    if (!root) return;
+
+    // give the iframe time to insert & load
+    setTimeout(() => {
+      const iframe = root.querySelector('iframe#chat-window');
+      if (!iframe) return;
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+      const chatTitle = doc.querySelector('#chat-title');
+      if (!chatTitle) return;
+
+      const span = document.createElement('span');
+      span.className   = chatTitle.className;
+      span.textContent = chatTitle.textContent;
+      chatTitle.replaceWith(span);
+    }, 200);  // tweak this delay as needed (200–300ms usually works)
+  });
 
       const timer = setInterval(() => {
         const container = document.querySelector('#gorgias-chat-container');
